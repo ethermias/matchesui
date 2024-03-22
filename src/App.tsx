@@ -1,25 +1,55 @@
+// App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Card from './components/Card';
 
-function App() {
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`;
+
+const Content = styled.div`
+  flex: 1;
+  display: flex;
+`;
+
+const Side = styled.div`
+  flex: 1;
+  padding: 10px;
+`;
+const Middle = styled.div`
+  flex: 2;
+  padding: 10px;
+  width: 60vh;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <Content>
+        <Side/>
+        <Middle>
+          <Card size="small" >
+            s
+          </Card>
+          <Card size="small" >
+            d
+          </Card>
+          <Card size="medium" >
+            d
+          </Card>
+          <Card size="large">
+            d
+          </Card>
+        </Middle>
+        <Side/>
+      </Content>
+      <Footer />
+    </Container>
   );
 }
 

@@ -1,13 +1,36 @@
-# React Beginner Course 2024 (Vite, Tailwind CSS, TypeScript)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-This is the project code for my YouTube tutorial: https://www.youtube.com/watch?v=siTUv1L9ymM
+## Getting Started
 
-Learn the basics of **React.js** with Tailwind CSS and TypeScript. You will learn:
-- How to set up a new React project using Vite
-- How to install & use Tailwind CSS in React
-- How to think in React
-- The difference between declarative and imperative code
-- What are components, props, JSX, SPA, unidirectional data flow, callbacks, state, side effects, and more.
-- How to build your first app with clean & well-organized code
+First, run the development server:
 
-![thumbnail](https://github.com/codinginflow/2024-react-beginner/assets/52977034/8388f39f-b9da-46b6-b5f8-8d1281205069)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

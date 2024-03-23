@@ -8,8 +8,6 @@ export default function Schedule() {
                     <div className="border p-0">Arseanl vs Man City</div>
                     <div className="border p-0">Watford vs Liverpool</div>
                     <div className="border p-0">Wesham vs Chealse </div>
-                </div>
-                <div>
                     <div className="border p-0">Chealse vs Brantford </div>
                     <div className="border p-0">Man United vs Man City </div>
                     <div className="border p-0">Aston Vila vs Wolved</div>

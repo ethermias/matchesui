@@ -5,14 +5,19 @@ import { Player } from "../types/player";
 
 export default function usePlayers() {
   const [players, setplayers] = useState(() => {
-    const savedplayers: Player[] = JSON.parse(
+    let savedplayers: Player[] = []
+    if (typeof window !== 'undefined') {
+      savedplayers = JSON.parse(
       localStorage.getItem("players") || "[]"
     );
+  }
     return savedplayers.length > 0 ? savedplayers : dummyData;
   });
 
   useEffect(() => {
-    localStorage.setItem("players", JSON.stringify(players));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("players", JSON.stringify(players));
+    }
   }, [players]);
 
   function addPlayer(name: string) {

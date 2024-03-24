@@ -5,14 +5,19 @@ import { Tag } from "../types/tag";
 
 export default function useTags() {
   const [tags, setTags] = useState(() => {
-    const savedTags: Tag[] = JSON.parse(
+    let savedTags: Tag[] = []
+    if (typeof window !== 'undefined') {
+      savedTags = JSON.parse(
       localStorage.getItem("tags") || "[]"
     );
+    }
     return savedTags.length > 0 ? savedTags : dummyData;
   });
 
   useEffect(() => {
-    localStorage.setItem("tags", JSON.stringify(tags));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("tags", JSON.stringify(tags)); 
+    }
   }, [tags]);
 
   function setTagCompleted(id: number, completed: boolean) {

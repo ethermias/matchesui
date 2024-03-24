@@ -1,18 +1,18 @@
-import { Todo } from "../types/todo";
-import TodoItem from "./TodoItem";
+import { Tag } from "@/src/types/tag";
+import TagItem from "./TagItem";
 
-interface TodoListProps {
-  todos: Todo[];
+interface TagListProps {
+  Tags: Tag[];
   onCompletedChange: (id: number, completed: boolean) => void;
   onDelete: (id: number) => void;
 }
 
-export default function TodoList({
-  todos,
+export default function TagList({
+  Tags,
   onCompletedChange,
   onDelete,
-}: TodoListProps) {
-  const todosSorted = todos.sort((a, b) => {
+}: TagListProps) {
+  const TagsSorted = Tags.sort((a, b) => {
     if (a.completed === b.completed) {
       return b.id - a.id;
     }
@@ -22,18 +22,18 @@ export default function TodoList({
   return (
     <>
       <div className="space-y-2">
-        {todosSorted.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
+        {TagsSorted.map((Tag) => (
+          <TagItem
+            key={Tag.id}
+            Tag={Tag}
             onCompletedChange={onCompletedChange}
             onDelete={onDelete}
           />
         ))}
       </div>
-      {todos.length === 0 && (
+      {Tags.length === 0 && (
         <p className="text-center text-sm text-gray-500">
-          No todos yet. Add a new one above.
+          No Tags yet. Add a new one above.
         </p>
       )}
     </>

@@ -1,30 +1,20 @@
 'use client'
 
-import AddTodoForm from "../components/AddTodoForm";
-import Dropdown from "../components/expermental/Dropdown";
-import TodoList from "../components/TodoList";
-import TodoSummary from "../components/TodoSummary";
-import useTodos from "../hooks/useTodos";
+import AddPlayer from "../components/Player/AddPlayer";
+import PlayerList from "../components/Player/PlayerList";
+import usePlayers from "../hooks/usePlayers";
 
 export default function Home() {
   const {
-    todos,
-    addTodo,
-    setTodoCompleted,
-    deleteTodo,
-    deleteAllCompletedTodos,
-  } = useTodos();
+    players,
+    addPlayer
+  } = usePlayers();
   return (
     <div>
-     <div>
-          <AddTodoForm onSubmit={addTodo} />
-          <TodoList
-            todos={todos}
-            onCompletedChange={setTodoCompleted}
-            onDelete={deleteTodo}
-          />
-        </div>
-      <TodoSummary todos={todos} deleteAllCompleted={deleteAllCompletedTodos} />
+      <AddPlayer onSubmit={addPlayer} />
+      <PlayerList
+        players={players}
+      />
     </div>
   );
 }

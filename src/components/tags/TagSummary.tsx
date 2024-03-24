@@ -1,22 +1,22 @@
-import { Todo } from "../types/todo";
+import { Tag } from "@/src/types/tag";
 
-interface TodoSummaryProps {
-  todos: Todo[];
+interface TagSummaryProps {
+  Tags: Tag[];
   deleteAllCompleted: () => void;
 }
 
-export default function TodoSummary({
-  todos,
+export default function TagSummary({
+  Tags,
   deleteAllCompleted,
-}: TodoSummaryProps) {
-  const completedTodos = todos.filter((todo) => todo.completed);
+}: TagSummaryProps) {
+  const completedTags = Tags.filter((Tag) => Tag.completed);
 
   return (
     <div className="text-center space-y-2">
       <p className="text-sm font-medium">
-        {completedTodos.length}/{todos.length} todos completed
+        {completedTags.length}/{Tags.length} Tags completed
       </p>
-      {completedTodos.length > 0 && (
+      {completedTags.length > 0 && (
         <button
           onClick={deleteAllCompleted}
           className="text-red-500 hover:underline text-sm font-medium"

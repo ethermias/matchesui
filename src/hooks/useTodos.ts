@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react";
 import { dummyData } from "../data/todos";
 import { Todo } from "../types/todo";

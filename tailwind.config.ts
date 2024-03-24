@@ -13,6 +13,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      playerPositions: {
+        gk: 'gk',
+        df: 'df',
+        md: 'md',
+        fd: 'fd',
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,28 @@
+.common{
+  display: flex; /* Make the element a flex container */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;
+  height: 20px; /* Set height */
+  background-color:  #0bf526;
+}
+.gk {
+   @extend .common;
+}
+  
+.df {
+  @extend .common;
+}
+
+.md {
+  @extend .common;
+}
+
+.fd {
+  @extend .common;
+}
+.dm {
+  @extend .common;
+}
+.am {
+  @extend .common;
+}

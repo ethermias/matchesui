@@ -13,7 +13,7 @@ export default function Rules() {
           <div className="p-0">-2 red card</div>
         </div>
         <div>
-          <h1 className="text-sm font-bold mb-1">Player's Team</h1>
+          <h1 className="text-sm font-bold mb-1">Player Team</h1>
           <div className="border p-0">+2 win the game</div>
           <div className="border p-0">-1 lost the game</div>
           <div className="border p-0">+1 score a goal</div>

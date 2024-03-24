@@ -15,7 +15,7 @@ export default function TagBar() {
           <CircleUserRound className="text-gray-600 hover:text-gray-800 cursor-pointer" />
         </Link>
         {tags.map((t) => 
-          <Link href="/tags">
+          <Link href="/tags" key={t.id}>
           {t.title}
           </Link>
        )}

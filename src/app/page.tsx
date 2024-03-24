@@ -1,7 +1,7 @@
 'use client'
 
-import AddPlayer from "../components/Player/AddPlayer";
-import PlayerList from "../components/Player/PlayerList";
+import AddPlayer from "../components/player/AddPlayer";
+import PlayerList from "../components/player/PlayerList";
 import usePlayers from "../hooks/usePlayers";
 
 export default function Home() {

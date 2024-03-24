@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface AddTagFormProps {
   onSubmit: (title: string) => void;
+  disabled: boolean
 }
 
-export default function AddTag({ onSubmit }: AddTagFormProps) {
+export default function AddTag({ onSubmit, disabled = false }: AddTagFormProps) {
   const [input, setInput] = useState("");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -14,7 +15,7 @@ export default function AddTag({ onSubmit }: AddTagFormProps) {
 
     if (!input.trim()) return;
 
-    onSubmit(input);
+    onSubmit(input + " 🤷‍♂️");
     setInput("");
   }
 
@@ -23,12 +24,14 @@ export default function AddTag({ onSubmit }: AddTagFormProps) {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="What needs to be done?"
+        placeholder="add your tag?"
         className="rounded-s-md grow border border-gray-400 p-2"
+        disabled = {disabled}
       />
       <button
         type="submit"
         className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
+        disabled = {disabled}
       >
         Add
       </button>

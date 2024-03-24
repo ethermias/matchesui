@@ -2,17 +2,17 @@ import { Tag } from "@/src/types/tag";
 import TagItem from "./TagItem";
 
 interface TagListProps {
-  Tags: Tag[];
+  tags: Tag[];
   onCompletedChange: (id: number, completed: boolean) => void;
   onDelete: (id: number) => void;
 }
 
 export default function TagList({
-  Tags,
+  tags,
   onCompletedChange,
   onDelete,
 }: TagListProps) {
-  const TagsSorted = Tags.sort((a, b) => {
+  const TagsSorted = tags.sort((a, b) => {
     if (a.completed === b.completed) {
       return b.id - a.id;
     }
@@ -22,18 +22,18 @@ export default function TagList({
   return (
     <>
       <div className="space-y-2">
-        {TagsSorted.map((Tag) => (
+        {TagsSorted.map((tag) => (
           <TagItem
-            key={Tag.id}
-            Tag={Tag}
+            key={tag.id}
+            tag={tag}
             onCompletedChange={onCompletedChange}
             onDelete={onDelete}
           />
         ))}
       </div>
-      {Tags.length === 0 && (
+      {tags.length === 0 && (
         <p className="text-center text-sm text-gray-500">
-          No Tags yet. Add a new one above.
+          No tags yet. Add a new one above.
         </p>
       )}
     </>

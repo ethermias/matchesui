@@ -10,10 +10,5 @@ export const dummyData: Tag[] = [
     id: 2,
     title: "Matchday 30 📺",
     completed: false,
-  },
-  {
-    id: 3,
-    title: "User 😊",
-    completed: false,
-  },
+  }
 ];

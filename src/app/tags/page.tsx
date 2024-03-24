@@ -7,7 +7,7 @@ import useTags from "@/src/hooks/useTags";
 
 export default function Home() {
   const {
-    Tags,
+    tags,
     addTag,
     setTagCompleted,
     deleteTag,
@@ -16,14 +16,14 @@ export default function Home() {
   return (
     <div>
      <div>
-          <AddTag onSubmit={addTag} />
+          <AddTag onSubmit={addTag} disabled={tags.length > 3}/>
           <TagList
-            Tags={Tags}
+            tags={tags}
             onCompletedChange={setTagCompleted}
             onDelete={deleteTag}
           />
         </div>
-      <TagSummary Tags={Tags} deleteAllCompleted={deleteAllCompletedTags} />
+      <TagSummary tags={tags} deleteAllCompleted={deleteAllCompletedTags} />
     </div>
   );
 }

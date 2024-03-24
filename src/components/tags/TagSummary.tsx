@@ -1,20 +1,20 @@
 import { Tag } from "@/src/types/tag";
 
 interface TagSummaryProps {
-  Tags: Tag[];
+  tags: Tag[];
   deleteAllCompleted: () => void;
 }
 
 export default function TagSummary({
-  Tags,
+  tags,
   deleteAllCompleted,
 }: TagSummaryProps) {
-  const completedTags = Tags.filter((Tag) => Tag.completed);
+  const completedTags = tags.filter((tag) => tag.completed);
 
   return (
     <div className="text-center space-y-2">
       <p className="text-sm font-medium">
-        {completedTags.length}/{Tags.length} Tags completed
+        {completedTags.length}/{tags.length} tags completed
       </p>
       {completedTags.length > 0 && (
         <button

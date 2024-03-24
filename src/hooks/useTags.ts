@@ -4,20 +4,20 @@ import { dummyData } from "../data/tags";
 import { Tag } from "../types/tag";
 
 export default function useTags() {
-  const [Tags, setTags] = useState(() => {
+  const [tags, setTags] = useState(() => {
     const savedTags: Tag[] = JSON.parse(
-      localStorage.getItem("Tags") || "[]"
+      localStorage.getItem("tags") || "[]"
     );
     return savedTags.length > 0 ? savedTags : dummyData;
   });
 
   useEffect(() => {
-    localStorage.setItem("Tags", JSON.stringify(Tags));
-  }, [Tags]);
+    localStorage.setItem("tags", JSON.stringify(tags));
+  }, [tags]);
 
   function setTagCompleted(id: number, completed: boolean) {
     setTags((prevTags) =>
-      prevTags.map((Tag) => (Tag.id === id ? { ...Tag, completed } : Tag))
+      prevTags.map((tag) => (tag.id === id ? { ...tag, completed } : tag))
     );
   }
 
@@ -33,15 +33,15 @@ export default function useTags() {
   }
 
   function deleteTag(id: number) {
-    setTags((prevTags) => prevTags.filter((Tag) => Tag.id !== id));
+    setTags((prevTags) => prevTags.filter((tag) => tag.id !== id));
   }
 
   function deleteAllCompletedTags() {
-    setTags((prevTags) => prevTags.filter((Tag) => !Tag.completed));
+    setTags((prevTags) => prevTags.filter((tag) => !tag.completed));
   }
 
   return {
-    Tags,
+    tags,
     setTagCompleted,
     addTag,
     deleteTag,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/NavBar";
+import TagBar from "../components/TagBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,10 @@ export default function RootLayout({
         <h1 className="font-bold text-3xl text-center">ችቦ</h1> 
           <div className="max-w-lg mx-auto bg-slate-100 rounded-md p-5 space-y-6">
             <NavBar />
+            <TagBar />
             {children}
           </div>
-    </div>  
+      </div>  
         
      </body>
     </html>

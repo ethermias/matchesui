@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from "react";
 import AddPlayer from "../components/player/AddPlayer";
 import PlayerList from "../components/player/PlayerList";
 import usePlayers from "../hooks/usePlayers";

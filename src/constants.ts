@@ -1,4 +1,7 @@
-const arr = [
+export const URL = 'http://127.0.0.1:8000'
+
+
+export const arr = [
   "Do the best you can. No one can do more than that. - John Wooden",
   "Study hard what interests you the most in the most undisciplinedirreverent and original manner possible. - Richard P. Feynman",
   "The only thing standing between you and outrageous success is continuousprogress.",

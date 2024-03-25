@@ -1,6 +1,6 @@
 'use client'
-
-import { useState } from "react";
+import { useState } from 'react';
+import { URL } from '../../constants'
 
 interface AddPlayerProps {
   onSubmit: (title: string) => void;
@@ -8,10 +8,19 @@ interface AddPlayerProps {
 
 export default function AddPlayer({ onSubmit }: AddPlayerProps) {
   const [input, setInput] = useState("");
+  const playersAPI = async () => {
+    try {
+      const res = await fetch(`${URL}/api/teams/${input}`);
+      const data = await res.json();
+      console.log(data)
+    } catch(err){
+      console.log(err)
+    }
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+    playersAPI()
     if (!input.trim()) return;
 
     onSubmit(input);

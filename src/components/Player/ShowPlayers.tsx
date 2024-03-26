@@ -9,12 +9,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Player } from "@/src/types/player";
+import { Button } from "@/components/ui/button";
 
 interface ShowPlayersProps {
   players: Player[];
+  squads: Array<Player> 
+  addSquads: Function
 }
-const ShowPlayers: React.FC<ShowPlayersProps> = ({ players }) => {
-  console.log(players);
+const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squads, addSquads }) => {
+  function handleClick(e: any){
+    const id = e.target.value
+    const ss = players.find(obj => obj.id === id);
+    addSquads(ss)
+  }
+  function checkSquad(id: string) {
+    return squads.find(obj => obj.id === id)
+  }
   return (
     <div style={{ maxWidth: "300px", paddingLeft: '40px' }}>
       <Carousel
@@ -28,8 +38,13 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players }) => {
             <CarouselItem key={index}>
                 <Card >
                     <CardHeader>
-                        <CardTitle>{player.jersey} {player.name}</CardTitle>
-                        <CardDescription>Arsenal $500</CardDescription>
+                        <CardTitle>
+                          <Button variant="outline" size='sm' value={player.id} onClick={handleClick} disabled={checkSquad(player.id)}>
+                            {player.name}{player.position} (+500)
+                            </Button>
+                        </CardTitle>
+                        <CardDescription>{player.position} {player.jersey} </CardDescription>
+                        <CardDescription></CardDescription>
                     </CardHeader>
                 </Card>
             </CarouselItem>

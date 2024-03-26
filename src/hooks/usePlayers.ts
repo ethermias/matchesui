@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { Player } from "../types/player";
 export default function usePlayers() {
-  const [players, setplayers] = useState<Array<Player>>([]);
+  const [players, setPlayers] = useState<Array<Player>>([]);
 
   function searchPlayers(player: Array<Player>) {
-    setplayers(player);
+    setPlayers(player);
   }
 
   return {

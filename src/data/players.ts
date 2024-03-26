@@ -6,13 +6,13 @@ export const dummyData: Player[] = [
     name: 'Saka',
     team:'Ars',
     salary: 5,
-    postion: 'fd'
+    postion: 'gk'
   },
   { 
     id: 10,
     name: 'Rashford',
     team:'Man',
     salary: 5,
-    postion: 'fd'
+    postion: 'df'
   }
 ];

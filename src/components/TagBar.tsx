@@ -1,13 +1,10 @@
 'use client'
 import Link from "next/link";
 import { CircleUserRound } from "lucide-react";
-import useTags from "../hooks/useTags";
+import { tags } from "../data/tags";
 
 export default function TagBar() {
-  const {
-    tags
-  } = useTags();
-  
+
   return (
     <div className="text-center space-y-2">
       <div className="flex items-center space-x-4">

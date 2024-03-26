@@ -1,6 +1,6 @@
 import { Tag } from "../types/tag";
 
-export const dummyData: Tag[] = [
+export const tags: Tag[] = [
   {
     id: 1,
     title: "Premer Legue 👍🏻",

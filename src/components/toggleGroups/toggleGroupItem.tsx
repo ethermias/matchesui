@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ToggleGroupsItemProps } from "./types";
+import { Button } from "@/components/ui/button";
 
 const ToggleGroupItem: React.FC<ToggleGroupsItemProps> = ({
   value, 
@@ -11,12 +12,13 @@ const ToggleGroupItem: React.FC<ToggleGroupsItemProps> = ({
     onChange(value)
   }
   return (
-    <button
+    <Button variant="secondary" size="sm"
       onClick={handleClick}
       style={{ fontWeight: selected ? "bold" : "normal" }}
-    >
+    > 
       {value}&nbsp;
-    </button>
+     
+    </Button>
   );
 };
 

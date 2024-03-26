@@ -1,13 +1,11 @@
 'use client'
-import { useEffect, useState } from "react";
-import { dummyData } from "../data/players";
+import { useState } from "react";
 import { Player } from "../types/player";
-
 export default function usePlayers() {
-  const [players, setplayers] = useState([]);
+  const [players, setplayers] = useState<Array<Player>>([]);
 
-  function searchPlayers(data: any) {
-    setplayers(data);
+  function searchPlayers(player: Array<Player>) {
+    setplayers(player);
   }
 
   return {

@@ -1,5 +1,5 @@
 'use client'
-
+import { URL } from '../../constants';
 import { useState } from "react";
 import { Player } from "@/src/types/player";
 
@@ -15,12 +15,12 @@ export default function AddSquad({ squads }: AddSquadProps) {
       e.preventDefault();
   
       try {
-        const response = await fetch('YOUR_SERVICE_URL', {
+        const response = await fetch(`${URL}/api/lineup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ data: { [input]: squads } }),
+          body: JSON.stringify({ tag: input, squad: squads.map((s) => parseInt(s.id) ) }),
         });
   
         if (response.ok) {

@@ -14,7 +14,7 @@ export default function Home() {
     <SearchPlayers onSubmit={searchPlayers}/>
     <ShowPlayers players={players} squads={squads} addSquads={addSquads}/>
     <SoccerField squads={squads}/>
-    <AddSquad  squads={squads}/>
+    <AddSquad squads={squads}/>
   </>
   ) 
 }

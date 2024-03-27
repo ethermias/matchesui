@@ -37,7 +37,7 @@ const f_4_4_2 = [
     },
     {
       index: 6,
-      value: 'Mart',
+      value: 'rice',
       col: '11 / 14',
       row: '8 / 9'
     },
@@ -49,15 +49,16 @@ const f_4_4_2 = [
     },
     {
       index: 8,
-      value: 'Jus',
-      col: '3 / 6',
-      row: '10 / 11'
-    },
-    {
-      index: 9,
       value: 'Odi',
       col: '8 / 11',
       row: '7 / 8'
+    
+    },
+    {
+      index: 9,
+      value: 'Jus',
+      col: '3 / 6',
+      row: '10 / 11'
     },
     {
       index: 10,

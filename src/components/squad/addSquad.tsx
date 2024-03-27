@@ -42,14 +42,14 @@ export default function AddSquad({ squads }: AddSquadProps) {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="add your tag?"
+          placeholder="pick your best 11, add your tag and save"
           className="rounded-s-md grow border border-gray-400 p-2"
-          disabled = {false}
+          disabled = {squads.length !== 11}
         />
         <button
           type="submit"
           className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
-          disabled = {false}
+          disabled = {input === ''}
         >
           Save
         </button>

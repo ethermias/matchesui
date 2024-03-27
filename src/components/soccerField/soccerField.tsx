@@ -5,14 +5,14 @@ interface SoccerFieldProps {
   squads: Player[]
 }
 
-const SoccerField = ( { squads }) => {
+const SoccerField: React.FC<SoccerFieldProps> = ( { squads }) => {
 
   const g = squads.find((obj: Player) => obj.position == 'G')
   const d = squads.filter((obj: Player) => obj.position == 'D')
   const m = squads.filter((obj: Player) => obj.position == 'M')
   const f = squads.filter((obj: Player) => obj.position == 'F')
   
-  f_4_4_2[0]["value"] = g?.name
+  f_4_4_2[0]["value"] = g ? g.name : ''
 
   for (let i = 0; i < 4; i++) {
     f_4_4_2[i+1]["value"] = d && d.length > i ? d[i].name : ''
@@ -24,15 +24,11 @@ const SoccerField = ( { squads }) => {
     f_4_4_2[i + 9]["value"] = f && f.length > i ? f[i].name : ''
   }
 
-
-  console.log( f_4_4_2[6]["value"])
-  console.log( f_4_4_2[10]["value"])
   return (
     <div className="soccer-field">
       {f_4_4_2.map(item => (
         <div
           key={item.index}
-          className="circle"
           style={{ gridColumn: item.col, gridRow: item.row }}
         >
           {item.value}

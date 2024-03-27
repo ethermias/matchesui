@@ -1,37 +1,49 @@
 import { Player } from "@/src/types/player"
 import "./soccer.css"
-import f_4_4_2 from './formation-4-4-2'
+import fourFourTwo from './fourFourTwo'
+import { Label } from "@/components/ui/label";
+
 interface SoccerFieldProps {
-  squads: Player[]
+  squad: Player[]
+  removeSquad: Function
 }
 
-const SoccerField: React.FC<SoccerFieldProps> = ( { squads }) => {
+const SoccerField: React.FC<SoccerFieldProps> = ( { squad, removeSquad }) => {
 
-  const g = squads.find((obj: Player) => obj.position == 'G')
-  const d = squads.filter((obj: Player) => obj.position == 'D')
-  const m = squads.filter((obj: Player) => obj.position == 'M')
-  const f = squads.filter((obj: Player) => obj.position == 'F')
+  const g = squad.find((obj: Player) => obj.position == 'G')
+  const d = squad.filter((obj: Player) => obj.position == 'D')
+  const m = squad.filter((obj: Player) => obj.position == 'M')
+  const f = squad.filter((obj: Player) => obj.position == 'F')
   
-  f_4_4_2[0]["value"] = g ? g.name : ''
+  function handleRemove(str: string){
+    const player = squad.find((obj: Player) => obj.name == str)
+    removeSquad(player)
+  }
+
+  function removeSpace(str: string) {
+    return str && str.charAt(1) === ' ' ?  str.substring(2) : str
+  }
+  
+  fourFourTwo[0]["value"] = g ? g.name : ''
 
   for (let i = 0; i < 4; i++) {
-    f_4_4_2[i+1]["value"] = d && d.length > i ? d[i].name : ''
+    fourFourTwo[i+1]["value"] = d && d.length > i ? d[i].name : ''
   }
   for (let i = 0; i < 4; i++) {
-    f_4_4_2[i + 5]["value"] = m && m.length > i ? m[i].name : ''
+    fourFourTwo[i + 5]["value"] = m && m.length > i ? m[i].name : ''
   }
   for (let i = 0; i < 2; i++) {
-    f_4_4_2[i + 9]["value"] = f && f.length > i ? f[i].name : ''
+    fourFourTwo[i + 9]["value"] = f && f.length > i ? f[i].name : ''
   }
-
+  
   return (
     <div className="soccer-field">
-      {f_4_4_2.map(item => (
+      {fourFourTwo.map(item => (
         <div
           key={item.index}
           style={{ gridColumn: item.col, gridRow: item.row }}
         >
-          {item.value}
+          {item.value && <Label>{removeSpace(item.value)}<span onClick={() => handleRemove(item.value)}> X</span></Label>}
         </div>
       ))}
     </div>

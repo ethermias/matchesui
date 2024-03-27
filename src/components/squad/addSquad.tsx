@@ -5,10 +5,10 @@ import { Player } from "@/src/types/player";
 
 
 interface AddSquadProps {
-    squads: Array<Player>
+    squad: Array<Player>
   }
 
-export default function AddSquad({ squads }: AddSquadProps) {
+export default function AddSquad({ squad }: AddSquadProps) {
     const [input, setInput] = useState("");
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +20,7 @@ export default function AddSquad({ squads }: AddSquadProps) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ tag: input, squad: squads.map((s) => parseInt(s.id) ) }),
+          body: JSON.stringify({ tag: input, squad: squad.map((s) => parseInt(s.id) ) }),
         });
   
         if (response.ok) {
@@ -44,7 +44,7 @@ export default function AddSquad({ squads }: AddSquadProps) {
           onChange={(e) => setInput(e.target.value)}
           placeholder="pick your best 11, add your tag and save"
           className="rounded-s-md grow border border-gray-400 p-2"
-          disabled = {squads.length !== 11}
+          disabled = {squad.length !== 11}
         />
         <button
           type="submit"

@@ -13,28 +13,28 @@ import { Button } from "@/components/ui/button";
 
 interface ShowPlayersProps {
   players: Player[];
-  squads: Array<Player> 
-  addSquads: Function
+  squad: Array<Player> 
+  addSquad: Function
 }
-const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squads, addSquads }) => {
+const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) => {
   
   function handleClick(e: any){
     const id = e.target.value
     const ss = players.find(obj => obj.id === id);
-    addSquads(ss)
+    addSquad(ss)
   }
   function checkSquad(player: Player): boolean {
-    const playerExist = squads.find(obj => obj.id === player.id)
+    const playerExist = squad.find(obj => obj.id === player.id)
     if(!playerExist) {
       switch(player.position) {
         case "D":
-          return squads.filter(obj => obj.position === "D").length  == 4;
+          return squad.filter(obj => obj.position === "D").length  == 4;
         case "M":
-          return squads.filter(obj => obj.position === "M").length  == 4;
+          return squad.filter(obj => obj.position === "M").length  == 4;
         case "F":
-          return squads.filter(obj => obj.position === "F").length  == 2;
+          return squad.filter(obj => obj.position === "F").length  == 2;
         case "G":
-          return squads.filter(obj => obj.position === "G").length == 1;
+          return squad.filter(obj => obj.position === "G").length == 1;
       }
     }
     return false

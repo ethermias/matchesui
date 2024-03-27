@@ -1,4 +1,4 @@
-const f_4_4_2 = [ 
+const fourFourTwo = [ 
     {
       index: 0,
       value: 'Raya',
@@ -68,4 +68,4 @@ const f_4_4_2 = [
     }
   ];
 
-  export default f_4_4_2
+  export default fourFourTwo

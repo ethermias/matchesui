@@ -1,5 +1,5 @@
 import { Player } from "../../types/player";
-import PlayerItem from "./PlayerItem";
+import PlayerItem from "./playerItem";
 
 interface PlayersProps {
   players: Player[];

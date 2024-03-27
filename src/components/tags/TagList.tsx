@@ -1,5 +1,5 @@
 import { Tag } from "@/src/types/tag";
-import TagItem from "./TagItem";
+import TagItem from "./tagItem";
 
 interface TagListProps {
   tags: Tag[];

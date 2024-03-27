@@ -1,7 +1,7 @@
 'use client'
 import usePlayers from "../hooks/usePlayers" 
 import SearchPlayers from "../components/player/searchPlayers"
-import ShowPlayers from "../components/player/ShowPlayers"
+import ShowPlayers from "../components/player/showPlayers"
 import useSquads from "../hooks/useSquads"
 import AddSquad from "../components/squad/addSquad"
 import SoccerField from "../components/soccerField/soccerField"

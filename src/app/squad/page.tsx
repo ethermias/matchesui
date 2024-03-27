@@ -1,4 +1,4 @@
-import PlayerItem from "@/src/components/player/PlayerItem";
+import PlayerItem from "@/src/components/player/playerItem";
 import { dummyData } from "@/src/data/players";
 
 export default function Squad() {

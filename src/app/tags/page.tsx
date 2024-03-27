@@ -1,8 +1,8 @@
 'use client'
 
-import AddTag from "@/src/components/tags/AddTag";
-import TagList from "@/src/components/tags/TagList";
-import TagSummary from "@/src/components/tags/TagSummary";
+import AddTag from "@/src/components/tags/addTag";
+import TagList from "@/src/components/tags/tagList";
+import TagSummary from "@/src/components/tags/tagSummary";
 import useTags from "@/src/hooks/useTags";
 
 export default function Home() {

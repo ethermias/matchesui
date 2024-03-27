@@ -17,13 +17,27 @@ interface ShowPlayersProps {
   addSquads: Function
 }
 const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squads, addSquads }) => {
+  
   function handleClick(e: any){
     const id = e.target.value
     const ss = players.find(obj => obj.id === id);
     addSquads(ss)
   }
-  function checkSquad(id: string) {
-    return squads.find(obj => obj.id === id)
+  function checkSquad(player: Player): boolean {
+    const playerExist = squads.find(obj => obj.id === player.id)
+    if(!playerExist) {
+      switch(player.position) {
+        case "D":
+          return squads.filter(obj => obj.position === "D").length  == 4;
+        case "M":
+          return squads.filter(obj => obj.position === "M").length  == 4;
+        case "F":
+          return squads.filter(obj => obj.position === "F").length  == 2;
+        case "G":
+          return squads.filter(obj => obj.position === "G").length == 1;
+      }
+    }
+    return false
   }
   return (
     <div style={{ maxWidth: "300px", paddingLeft: '40px' }}>
@@ -39,7 +53,7 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squads, addSquads })
                 <Card >
                     <CardHeader>
                         <CardTitle>
-                          <Button variant="outline" size='sm' value={player.id} onClick={handleClick} disabled={checkSquad(player.id)}>
+                          <Button variant="outline" size='sm' value={player.id} onClick={handleClick} disabled={checkSquad(player)}>
                             {player.name}{player.position} (+500)
                             </Button>
                         </CardTitle>

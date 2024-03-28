@@ -4,9 +4,12 @@ import { Player } from "../types/player";
 
 export default function useSquad() {
   const [squad, setSquad] = useState<Array<Player>>([]);
-
+  console.log({ squad: squad })
   function addSquad(player: Player) {
-    setSquad([...squad, player ]);
+    const playerExist = squad.find((p)=> p.id == player.id)
+    if(squad.length < 11 && playerExist == undefined){
+      setSquad([...squad, player ]);
+    }
   }
 
   function removeSquad(player: Player) {

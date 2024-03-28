@@ -27,14 +27,14 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) =
     const playerExist = squad.find(obj => obj.id === player.id)
     if(!playerExist) {
       switch(player.position) {
-        case "D":
-          return squad.filter(obj => obj.position === "D").length  == 4;
-        case "M":
-          return squad.filter(obj => obj.position === "M").length  == 4;
-        case "F":
-          return squad.filter(obj => obj.position === "F").length  == 2;
         case "G":
-          return squad.filter(obj => obj.position === "G").length == 1;
+          return squad.filter(obj => obj.position === "G").length > 0;
+        case "D":
+          return squad.filter(obj => obj.position === "D").length  > 3;
+        case "M":
+          return squad.filter(obj => obj.position === "M").length  > 3;
+        case "F":
+          return squad.filter(obj => obj.position === "F").length  > 2;
       }
     }
     return false

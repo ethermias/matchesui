@@ -1,8 +1,8 @@
 'use client'
+import LeaderServers from "@/src/components/leaders/leadersServers"
 
-export default function Leader() {
+export default function Home() {
   return (
-    <div> Leader for MatchWeek 30</div>
-    );
+    <LeaderServers />
+  )
 }
-

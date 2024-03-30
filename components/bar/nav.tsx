@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Trophy,CalendarCheck2, Scale, LucideHome } from "lucide-react";
+import { Label } from "../ui/label";
 
 export default function NavBar() {
   return (
@@ -18,6 +19,9 @@ export default function NavBar() {
           <CalendarCheck2
             className="text-gray-600 hover:text-gray-800 cursor-pointer"
           />
+        </Link>
+        <Link href="/changelog">
+          <Label>v0.1.2</Label>
         </Link>
       </div>
     </div>

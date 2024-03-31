@@ -7,7 +7,7 @@ import { Player } from "@/types/player";
 interface AddSquadProps {
     squad: Array<Player>
   }
-const URL = 'http://127.0.0.1:8000'
+
 export default function AddSquad({ squad }: AddSquadProps) {
     const [input, setInput] = useState("");
   
@@ -15,6 +15,7 @@ export default function AddSquad({ squad }: AddSquadProps) {
       e.preventDefault();
   
       try {
+        const URL = `http://${process.env.API_URL}:${API_PORT}`
         const response = await fetch(`${URL}/api/lineup`, {
           method: 'POST',
           headers: {

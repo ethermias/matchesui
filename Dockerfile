@@ -2,7 +2,7 @@ FROM node:lts AS builder
 
 WORKDIR /app
 
-COPY . ./
+COPY matchesui/ ./
 
 RUN yarn install --frozen-lockfile
 

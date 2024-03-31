@@ -17,19 +17,19 @@ interface TLeader  {
     submited: string
 }
 
-// export async function getData() {
-//  const URL = `http://${process.env.API_URL}:${API_PORT}`
-//     const res = await fetch(`${URL}/api/leaders`);
+export async function getData() {
+ const URL = `http://${process.env.API_URL}:${API_PORT}`
+    const res = await fetch(`${URL}/api/leaders`);
 
-//     if (!res.ok) {
-//       throw new Error('Failed to fetch data')
-//     }
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
+    }
    
-//     return res.json()
-// }
+    return res.json()
+}
 
 export default async function LeaderServers() {
- // const { leaders, matchday, total } = await getData()
+ const { leaders, matchday, total } = await getData()
  const title = "Top leader for Matchday 30 📺"
  const sortedLeaders = leaders.sort((a, b) => b.score - a.score);
   return (

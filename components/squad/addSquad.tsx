@@ -15,7 +15,7 @@ export default function AddSquad({ squad }: AddSquadProps) {
       e.preventDefault();
   
       try {
-        const URL = `http://${process.env.API_URL}:${API_PORT}`
+        const URL = `http://${process.env.API_URL}:${process.env.API_PORT}`
         const response = await fetch(`${URL}/api/lineup`, {
           method: 'POST',
           headers: {

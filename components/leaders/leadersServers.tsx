@@ -18,7 +18,7 @@ interface TLeader  {
 }
 
 export async function getData() {
- const URL = `http://${process.env.API_URL}:${API_PORT}`
+ const URL = `http://${process.env.API_URL}:${process.env.API_PORT}`
     const res = await fetch(`${URL}/api/leaders`);
 
     if (!res.ok) {

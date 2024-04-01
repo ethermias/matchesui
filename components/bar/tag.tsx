@@ -5,7 +5,7 @@ import { Tag } from "@/types/tag";
 import Countdown from 'react-countdown';
 
 export default function TagBar() {
-   const targetDate = new Date("2024-04-02T13:30:00").getTime();
+   const targetDate = new Date("2024-04-02T11:26:00").getTime();
    const tags: Tag[] = [
     {
       id: 1,

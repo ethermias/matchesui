@@ -14,7 +14,7 @@ export default function TagBar() {
     },
     {
       id: 2,
-      title: "Matchday 31 📺 start in: ",
+      title: "Matchday 31 📺 ",
       completed: false,
     }
   ];

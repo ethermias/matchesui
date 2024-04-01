@@ -1,14 +1,14 @@
 const sch = [
-  "Newcastle vs West Ham",
-  "Bournemouth vs Everton",
-  "Chelsea vs Burnley",
-  "Nott'm Forest vs Crystal Palace",
-  "Sheffield Utd vs Fulham",
-  "Spurs vs Luton",
-  "Aston Villa vs Wolves",
-  "Brentford vs Man Utd",
-  "Liverpool vs Brighton",
-  "Man City vs Arsenal"
+  "Nottm Forest vs Fulham",
+  "Newcastle vs Everton",
+  "Burnley vs Wolves",
+  "Bournemouth vs Crystal Palace",
+  "West Ham vs Tottenham",
+  "Arsenal vs Luton",
+  "Brentford vs Brighton",
+  "Man City vs Aston Villa",
+  "Liverpool vs Sheff Utd",
+  "Chelsea vs Man Utd"
 ]
 export default function Schedule() {
   return (

@@ -8,3 +8,9 @@
   background-color: green;
   padding: 10px;
 }
+
+.soccer-field-background {
+  background-image: url('/background.svg');
+  background-size: cover;
+  background-position: center;
+}

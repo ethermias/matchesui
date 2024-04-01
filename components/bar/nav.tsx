@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { Trophy,CalendarCheck2, Scale, LucideHome } from "lucide-react";
 import { Label } from "../ui/label";
+import { Toaster } from "@/components/ui/toaster"
 
 export default function NavBar() {
   return (
+    <>
+    <Toaster />
     <div className="text-center space-y-2">
       <div className="flex items-center space-x-4">
         <Link href="/">
@@ -25,5 +28,6 @@ export default function NavBar() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { CircleUserRound } from "lucide-react";
 import { Tag } from "@/types/tag";
+import Countdown from 'react-countdown';
 
 export default function TagBar() {
+   const targetDate = new Date('2024-04-02T14:00:00').getTime();
    const tags: Tag[] = [
     {
       id: 1,
@@ -12,7 +14,7 @@ export default function TagBar() {
     },
     {
       id: 2,
-      title: "Matchday 30 📺",
+      title: "Matchday 31 📺 start in: ",
       completed: false,
     }
   ];
@@ -27,6 +29,7 @@ export default function TagBar() {
           {t.title}
           </Link>
        )}
+       <Countdown date={targetDate} />
       </div>
     </div>
   );

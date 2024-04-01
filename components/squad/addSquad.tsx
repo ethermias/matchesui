@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import { Player } from "@/types/player";
+import { useToast } from "@/components/ui/use-toast"
 
 
 interface AddSquadProps {
     squad: Array<Player>
+    removeAllSquad: Function
   }
 
-export default function AddSquad({ squad }: AddSquadProps) {
+export default function AddSquad({ squad, removeAllSquad }: AddSquadProps) {
     const [input, setInput] = useState("");
+    const { toast } = useToast()
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -26,7 +29,12 @@ export default function AddSquad({ squad }: AddSquadProps) {
   
         if (response.ok) {
           console.log('Request sent successfully');
-          // Handle success as needed
+          removeAllSquad()
+          toast({
+            title: `${response?.lineup?.tag} sent successfully`,
+            description: `{response.lineup.submittedAt}`,
+          })
+          
         } else {
           console.error('Failed to send request:', response.statusText);
           // Handle error as needed
@@ -37,6 +45,7 @@ export default function AddSquad({ squad }: AddSquadProps) {
       }
       setInput("");
     }
+
   
     return (
       <form className="flex" onSubmit={handleSubmit}>

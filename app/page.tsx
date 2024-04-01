@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 
 export default function Home() {
   const { players, searchPlayers } = usePlayers() 
-  const { squad, addSquad, removeSquad } = useSquad() 
+  const { squad, addSquad, removeSquad, removeAllSquad } = useSquad() 
 
   function runningMode(){
     if(process.env.DEPLOY_MODE === 'S3'){
@@ -23,7 +23,7 @@ export default function Home() {
         <SearchPlayers onSubmit={searchPlayers}/>
         <ShowPlayers players={players} squad={squad} addSquad={addSquad}/>
         <SoccerField squad={squad} removeSquad={removeSquad}/>
-        <AddSquad squad={squad}/>
+        <AddSquad squad={squad} removeAllSquad={removeAllSquad}/>
       </>
     }
 

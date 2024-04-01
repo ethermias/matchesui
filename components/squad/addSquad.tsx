@@ -16,7 +16,7 @@ export default function AddSquad({ squad, removeAllSquad }: AddSquadProps) {
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-  
+      const submittedAt = Date.now()
       try {
         const URL = `http://${process.env.API_URL}:${process.env.API_PORT}`
         const response = await fetch(`${URL}/api/lineup`, {
@@ -24,15 +24,15 @@ export default function AddSquad({ squad, removeAllSquad }: AddSquadProps) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ tag: input, squad: squad.map((s) => parseInt(s.id) ) }),
+          body: JSON.stringify({ tag: input, squad: squad.map((s) => parseInt(s.id) ), submittedAt: submittedAt }),
         });
   
         if (response.ok) {
           console.log('Request sent successfully');
           removeAllSquad()
           toast({
-            title: `${response?.lineup?.tag} sent successfully`,
-            description: `{response.lineup.submittedAt}`,
+            title: `${input} sent successfully`,
+            description: `${submittedAt}`,
           })
           
         } else {

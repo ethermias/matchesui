@@ -18,7 +18,7 @@ export default function AddSquad({ squad, removeAllSquad }: AddSquadProps) {
       e.preventDefault();
       const submittedAt = Date.now()
       try {
-        const URL = `http://${process.env.API_URL}:${process.env.API_PORT}`
+        const URL = `http://127.0.0.1:8000`
         const response = await fetch(`${URL}/api/lineup`, {
           method: 'POST',
           headers: {

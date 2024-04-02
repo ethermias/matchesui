@@ -19,7 +19,7 @@ export default function TagBar() {
     }
   ];
   return (
-    <div className="text-center space-y-2">
+    <div className="text-center py-10 space-y-10">
       <div className="flex items-center space-x-4">
         <Link href="/tags">
           <CircleUserRound className="text-gray-600 hover:text-gray-800 cursor-pointer" />

@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+Delete docker from your applications folder
+Update XCode from app store (this takes some time)
+Terminal: softwareupdate --install-rosetta
+Terminal: brew update --auto-update (assuming you had brew)
+Download: https://desktop.docker.com/mac/main/arm64/124339/Docker.dmg
+Open and install that package normally
+Open application folder, open docker
+I updated to 4.25.2 from inside the Docker client then upgraded brew for M chips

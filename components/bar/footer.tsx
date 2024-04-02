@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Trophy, CalendarCheck2, Scale, LucideHome } from "lucide-react";
 import { Label } from "../ui/label";
 
-export default function NavBar() {
+export default function Footer() {
   return ( 
       <div className="fixed left-0 right-0 bottom-0 max-w-lg mx-auto bg-slate-50 py-4 px-6 z-10">
         <div className="text-center space-y-2">

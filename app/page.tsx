@@ -5,7 +5,7 @@ import ShowPlayers from "../components/player/showPlayers"
 import AddSquad from "../components/squad/addSquad"
 import SoccerField from "../components/soccerField/soccerField"
 import useSquad from "@/hooks/useSquad"
-import LeaderServers from "@/components/leaders/leadersServers"
+import Leaders from "@/components/leader/leaders"
 import { Label } from "@/components/ui/label"
 
 const deployMode = process.env.DEPLOY_MODE || 'S3';
@@ -25,7 +25,7 @@ export default function Home() {
     } else {
       return <>
         <Label>📍 The next contest Matchday 32 📺 begin in Friday April 5, Score will be updated every 2 hr for Matchday 31🦮 </Label>
-        <LeaderServers />
+        <Leaders />
       </>
     }
   }

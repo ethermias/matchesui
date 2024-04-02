@@ -9,18 +9,25 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table"
+import Moment from 'react-moment'
 
 
 interface TLeader  {
     tag: string,
     score: number,
-    submited: string
+    submittedAt: string
+}
+const sortLeaders = (theLeaders: Array<TLeader>) => {
+  if(theLeaders && theLeaders.length !== 0){
+    return theLeaders.sort((a, b) => b.score - a.score) 
+  }
+ return []
 }
 
-export default async function LeaderServers() {
+const Leaders= () => {
 const title = "Top leader for Matchday 31 📺"
 
-const sortedLeaders = leaders && leaders.length !==0 ?  leaders.sort((a, b) => b.score - a.score) : []
+const sortedLeaders = sortLeaders(leaders)
   return (
     <Table>
       <TableCaption>{title}</TableCaption>
@@ -36,7 +43,7 @@ const sortedLeaders = leaders && leaders.length !==0 ?  leaders.sort((a, b) => b
         {sortedLeaders.map((leader: TLeader ) => (
           <TableRow key={leader.tag}>
             <TableCell className="font-small">{leader.tag}</TableCell>
-            <TableCell className="font-small">{leader.submited}</TableCell>
+            <TableCell className="font-small"><Moment>{new Date(parseInt(leader.submittedAt))}</Moment></TableCell>
             <TableCell className="text-right">{leader.score}</TableCell>
           </TableRow>
         ))}
@@ -44,3 +51,5 @@ const sortedLeaders = leaders && leaders.length !==0 ?  leaders.sort((a, b) => b
     </Table>
   )
 }
+
+export default Leaders;

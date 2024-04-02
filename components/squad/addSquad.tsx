@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { Player } from "@/types/player";
 import { useToast } from "@/components/ui/use-toast"
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 
 interface AddSquadProps {
@@ -49,20 +51,20 @@ export default function AddSquad({ squad, removeAllSquad }: AddSquadProps) {
   
     return (
       <form className="flex" onSubmit={handleSubmit}>
-        <input
+        <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="pick your best 11, add your tag and save"
           className="rounded-s-md grow border border-gray-400 p-2"
           disabled = {squad.length !== 11}
         />
-        <button
+        <Button
           type="submit"
           className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
           disabled = {input === ''}
         >
           Save
-        </button>
+        </Button>
       </form>
     );
   }

@@ -17,42 +17,30 @@ interface TLeader  {
     submited: string
 }
 
-export async function getData() {
- const URL = `http://127.0.0.1:8000`
-    const res = await fetch(`${URL}/api/leaders`);
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
-   
-    return res.json()
-}
-
 export default async function LeaderServers() {
-//  const { leaders, matchday, total } = await getData()
-//  const title = "Top leader for Matchday 30 📺"
-//  const sortedLeaders = leaders.sort((a, b) => b.score - a.score);
+const title = "Top leader for Matchday 31 📺"
+
+const sortedLeaders = leaders && leaders.length !==0 ?  leaders.sort((a, b) => b.score - a.score) : []
   return (
-        <div>coming soon</div>
-    // <Table>
-    //   <TableCaption>{title}</TableCaption>
-    //   <TableCaption>📍 Score breaking will be available on version v0.1.3 </TableCaption>  
-    //   <TableHeader>
-    //     <TableRow>
-    //       <TableHead className="text-left">Tags</TableHead>
-    //       <TableHead className="w-[200px]">Submitted</TableHead>
-    //       <TableHead className="text-right">score</TableHead>
-    //     </TableRow>
-    //   </TableHeader>
-    //   <TableBody>
-    //     {sortedLeaders.map((leader: TLeader ) => (
-    //       <TableRow key={leader.tag}>
-    //         <TableCell className="font-small">{leader.tag}</TableCell>
-    //         <TableCell className="font-small">{leader.submited}</TableCell>
-    //         <TableCell className="text-right">{leader.score}</TableCell>
-    //       </TableRow>
-    //     ))}
-    //   </TableBody>
-    // </Table>
+    <Table>
+      <TableCaption>{title}</TableCaption>
+      <TableCaption>📍 Score breaking will be available on version v0.1.3 </TableCaption>  
+      <TableHeader>
+        <TableRow>
+          <TableHead className="text-left">Tags</TableHead>
+          <TableHead className="w-[200px]">Submitted</TableHead>
+          <TableHead className="text-right">score</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {sortedLeaders.map((leader: TLeader ) => (
+          <TableRow key={leader.tag}>
+            <TableCell className="font-small">{leader.tag}</TableCell>
+            <TableCell className="font-small">{leader.submited}</TableCell>
+            <TableCell className="text-right">{leader.score}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   )
 }

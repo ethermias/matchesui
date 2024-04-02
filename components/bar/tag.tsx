@@ -19,17 +19,14 @@ export default function TagBar() {
     }
   ];
   return (
-    <div className="text-center py-10 space-y-10">
-      <div className="flex items-center space-x-4">
-        <Link href="/tags">
-          <CircleUserRound className="text-gray-600 hover:text-gray-800 cursor-pointer" />
-        </Link>
+    <div className="text-center py-6 space-y-6 mt-4" >
+      <div className="flex items-center space-x-6">
         {tags.map((t) => 
           <Link href="/tags" key={t.id}>
           {t.title}
           </Link>
        )}
-       <Countdown date={targetDate} />
+       {/* <Countdown date={targetDate} /> */}
       </div>
     </div>
   );

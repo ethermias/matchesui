@@ -11,6 +11,8 @@ function Setting() {
             side="right"
             header={<Settings className="text-gray-600 hover:text-gray-800 cursor-pointer mr-2" />}
             content={<SettingItems className="px-4" />}
+            title={'Setting'}
+            description="App Settings"
         />
     )
 }

@@ -21,7 +21,7 @@ interface CustomSheet {
     title?: string
     description?: string
 }
-const CustomSheet: React.FC<CustomSheet> = ({ handleCallback, header, content, side='right', title='This is not functinal.', description='This is not functinal.'}) => {
+const CustomSheet: React.FC<CustomSheet> = ({ handleCallback, header, content, side='right', title='coming soon....', description='coming soon....'}) => {
     const [open, setOpen] = React.useState<boolean>(false)
     const handleSheetClose = () => {
         handleCallback()

@@ -8,7 +8,7 @@ import useSquad from "@/hooks/useSquad"
 import Leaders from "@/components/leader/leaders"
 import { Label } from "@/components/ui/label"
 
-const deployMode = process.env.DEPLOY_MODE || 'S3';
+const deployMode = process.env.DEPLOY_MODE || 'S2SS3';
 
 export default function Home() {
   const { players, searchPlayers } = usePlayers()
@@ -17,8 +17,14 @@ export default function Home() {
   function runningMode() {
     if (deployMode !== 'S3') {
       return <>
-        <SearchPlayers onSubmit={searchPlayers} />
-        <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+        <div className="flex">
+          <div className="w-1/2">
+            <SearchPlayers onSubmit={searchPlayers} />
+          </div>
+          <div className="w-1/2">
+            <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+          </div>
+        </div>
         <SoccerField squad={squad} removeSquad={removeSquad} />
         <AddSquad squad={squad} removeAllSquad={removeAllSquad} />
       </>

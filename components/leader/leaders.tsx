@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "../ui/table"
 import Moment from 'react-moment'
+import { Label } from '../ui/label'
 
 
 interface TLeader  {
@@ -28,7 +29,9 @@ const Leaders= () => {
 const title = "Top leader for Matchday 31 📺"
 
 const sortedLeaders = sortLeaders(leaders)
-  return (
+  return (<>
+    <Label>📍 The next contest Matchday 33 📺 begin in Friday April 5, Score will be updated every 2 hr for Matchday 32🦮 </Label>
+    
     <Table>
       <TableCaption>{title}</TableCaption>
       <TableCaption>📍 Score breaking will be available on version v0.1.3 </TableCaption>  
@@ -49,6 +52,7 @@ const sortedLeaders = sortLeaders(leaders)
         ))}
       </TableBody>
     </Table>
+    </>
   )
 }
 

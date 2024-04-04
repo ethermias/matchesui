@@ -37,7 +37,7 @@ const SoccerField: React.FC<SoccerFieldProps> = ( { squad, removeSquad }) => {
   }
   
   return (
-    <div className="soccer-field">
+    <div className="soccer-field soccer-field-background">
       {fourFourTwo.map(item => (
         <div
           key={item.index}

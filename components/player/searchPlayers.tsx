@@ -20,10 +20,10 @@ interface SearchPlayersProps {
 
 
 const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
-  const [input, setInput] = useState();
+  const [teamShort, setTeamShort] = useState();
 
   async function handleSubmit(e: any) {
-    setInput(e)
+    setTeamShort(e)
     const data = await playersAPI(e);
     onSubmit(data)
   }
@@ -51,7 +51,7 @@ const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
           </SelectContent>
         </Select>
 
-        {input && <SearchPlayersServer input={input} />}
+        {teamShort && <SearchPlayersServer input={teamShort} />}
 
     </div>
   );

@@ -16,6 +16,7 @@ export default function AddSquad() {
   const { toast } = useToast()
   const { players, searchPlayers } = usePlayers()
   const { squad, addSquad, removeSquad, removeAllSquad } = useSquad()
+  const [teamShort, setTeamShort] = useState();
   const [ input, setInput ] = useState("");
   
 
@@ -58,10 +59,8 @@ export default function AddSquad() {
       <div className="w-1/2">
         <SearchPlayers onSubmit={searchPlayers} />
       </div>
-      <div className="w-1/2">
-        <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
-      </div>
     </div>
+    <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
     <SoccerField squad={squad} removeSquad={removeSquad} />
     <form className="flex" onSubmit={handleSubmit}>
       <Input

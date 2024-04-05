@@ -30,7 +30,6 @@ const Leaders= () => {
 const title = "Top leader for Matchday 31 📺"
 
 const sortedLeaders31 = sortLeaders(leaders31)
-const sortedLeaders30 = sortLeaders(leaders30)
   return (<>
      <Label>📍 Winner Matchday 31 📺 </Label>
     

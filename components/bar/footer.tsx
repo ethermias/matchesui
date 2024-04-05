@@ -5,11 +5,10 @@ import { Label } from "../ui/label";
 import { useTheme } from 'next-themes';
 
 const bgColor = (tm: string | undefined) => tm == 'light' ?  'bg-slate-100' : 'bg-gray-900'
-const txColor = (tm: string | undefined) => tm == 'light' ?  '' : 'bg-white' 
 export default function Footer() {
   const { theme } = useTheme()
 
-  const tmName = `fixed left-0 right-0 bottom-0 max-w-lg mx-auto py-4 px-6 z-10 ${bgColor(theme)} ${txColor(theme)}`
+  const tmName = `fixed left-0 right-0 bottom-0 max-w-lg mx-auto py-4 px-6 z-10 ${bgColor(theme)}`
   return ( 
       <div className={tmName}>
         <div className="text-center space-y-2">

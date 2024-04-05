@@ -38,15 +38,15 @@ const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Popular</SelectLabel>
-              {highTeamArr.map(team => <SelectItem value={team.value}>{team.label}</SelectItem>)}
+              {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
             </SelectGroup>
             <SelectGroup>
               <SelectLabel>Mid table</SelectLabel>
-              {midTeamArr.map(team => <SelectItem value={team.value}>{team.label}</SelectItem>)}
+              {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
             </SelectGroup>
             <SelectGroup>
               <SelectLabel>Bottom</SelectLabel>
-              {bottomTeamArr.map(team => <SelectItem value={team.value}>{team.label}</SelectItem>)}
+              {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
             </SelectGroup>
           </SelectContent>
         </Select>

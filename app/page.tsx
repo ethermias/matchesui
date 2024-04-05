@@ -3,7 +3,7 @@ import AddSquad from "../components/squad/addSquad"
 import Leaders from "@/components/leader/leaders"
 import { Label } from "@/components/ui/label"
 
-const deployMode = process.env.DEPLOY_MODE || 'S2SS3';
+const deployMode = process.env.DEPLOY_MODE || 'S3';
 
 export default function Home() {
   function runningMode() {

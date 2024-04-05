@@ -14,7 +14,7 @@ const matchweek31 = [
 export default function Schedule() {
   return (
     <div className="space-y-2">
-    <h2 className="text-sm font-bold mb-0">30 ሳምንት</h2>
+    <h2 className="text-sm font-bold mb-0">32 ሳምንት</h2>
     <div className="grid grid-cols-2">
         { matchweek31.map((p) => <div className="border p-0" key={p}>{p}</div>) }
     </div>

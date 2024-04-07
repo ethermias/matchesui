@@ -45,3 +45,20 @@ Download: https://desktop.docker.com/mac/main/arm64/124339/Docker.dmg
 Open and install that package normally
 Open application folder, open docker
 I updated to 4.25.2 from inside the Docker client then upgraded brew for M chips
+
+ 1037  sudo gem install cocoapods
+ 1038  ruby -v
+ 1039   brew reinstall chruby
+ 1040  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+ 1041   source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+ 1042  chruby 3.3.0
+ 1043  ruby -v
+ 1044  sudo gem install cocoapods
+ 1045  pod
+ 1046  npx cap sync
+ 1047  ruby -v
+ 1048  sudo gem install cocoapods
+ 1049  npx cap ios open
+ 1050  npx cap open ios
+ 1051  cd ..
+ 1052  cp -rf matchesui back-ui

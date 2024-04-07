@@ -25,7 +25,11 @@ export default function Home() {
         "version": "v0.1.2",
         "description": "Chibo's first App !!, set up dynamic site, major upgrade ui, User able to submit 11 Players for Macthday 30 📺 weekend",
         "release": "Mar 29, 2024"
-    }]
+    },{
+      "version": "v0.1.3",
+      "description": "soccer field updated. team selection dropdown, haeder and footer component",
+      "release": "Apr 5, 2024"
+  }]
     return (
         <Table>
         <TableCaption>Score breaking will be available next Saturday on version v0.1.3</TableCaption>     

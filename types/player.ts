@@ -23,7 +23,7 @@ export interface Player {
     displayName: string
     jersey: string
     position: string
-    salary: string
+    salary: number
     state: {
         general: General
         offensive: Offensive

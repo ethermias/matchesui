@@ -16,7 +16,6 @@ export default function AddSquad() {
   const { toast } = useToast()
   const { players, searchPlayers } = usePlayers()
   const { squad, addSquad, removeSquad, removeAllSquad } = useSquad()
-  const [teamShort, setTeamShort] = useState();
   const [ input, setInput ] = useState("");
   
 
@@ -52,11 +51,14 @@ export default function AddSquad() {
     setInput("");
   }
 
+  const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
 
   return (<>
-    <Label>📍 Select your best 11 for MatchDay 32</Label>
+    <Label>📍 Select your best 11 for MatchDay 32 </Label>
+
     <div className="flex">
       <div className="w-1/2">
+      <Label>${sq} out of $55,000</Label>
         <SearchPlayers onSubmit={searchPlayers} />
       </div>
     </div>

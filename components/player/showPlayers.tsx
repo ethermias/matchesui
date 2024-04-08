@@ -8,6 +8,7 @@ import {
 } from "../ui/carousel";
 import { Player } from "@/types/player";
 import { Button } from "../ui/button";
+import { toast } from "../ui/use-toast";
 
 interface ShowPlayersProps {
   players: Player[];
@@ -30,11 +31,25 @@ const fullPosition = (pos: string) => {
   }
 };
 const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) => {
-
+  
   function handleClick(e: any) {
     const id = e.target.value
-    const ss = players.find(obj => obj.id === id);
-    addSquad(ss)
+    const selectedPlayer = players.find(obj => obj.id === id);
+    if(selectedPlayer){
+      const playerExist = squad.find((p)=> p.id == selectedPlayer.id)
+      const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0) + selectedPlayer.salary
+      if(sq > 55000){
+        if(squad.length < 11 && playerExist == undefined) {
+          addSquad(selectedPlayer)
+        }
+      }else{
+        toast({
+          title: "You have salary cap limit of 55000",
+          description: "Remove player with high salary and try again",
+        })
+      }
+
+    }
   }
 
   function checkSquad(player: Player): boolean {

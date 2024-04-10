@@ -1,7 +1,6 @@
 'use client'
 import AddSquad from "../components/squad/addSquad"
 import Leaders from "@/components/leader/leaders"
-import { Label } from "@/components/ui/label"
 
 const deployMode = process.env.DEPLOY_MODE || 'Ec2';
 

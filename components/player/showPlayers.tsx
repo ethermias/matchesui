@@ -38,11 +38,11 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) =
     if(selectedPlayer){
       const playerExist = squad.find((p)=> p.id == selectedPlayer.id)
       const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0) + selectedPlayer.salary
-      if(sq > 55000){
+      if(sq < 55000){
         if(squad.length < 11 && playerExist == undefined) {
           addSquad(selectedPlayer)
         }
-      }else{
+      } else{
         toast({
           title: "You have salary cap limit of 55000",
           description: "Remove player with high salary and try again",

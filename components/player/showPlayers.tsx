@@ -63,7 +63,7 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) =
         case "M":
           return squad.filter(obj => obj.position === "M").length > 3;
         case "F":
-          return squad.filter(obj => obj.position === "F").length > 2;
+          return squad.filter(obj => obj.position === "F").length > 1;
       }
     }
     return false

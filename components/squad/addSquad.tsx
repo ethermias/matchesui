@@ -54,7 +54,7 @@ export default function AddSquad() {
   const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
 
   return (<>
-    <Label>📍 Select your best 11 for MatchDay 32 </Label>
+    <Label>📍 Select your best 11 for MatchDay 33 </Label>
 
     <div className="flex">
       <div className="w-1/2">

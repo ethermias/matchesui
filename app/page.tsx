@@ -1,4 +1,5 @@
 'use client'
+import UserProfileItems from "@/components/bar/userProfileItems";
 import AddSquad from "../components/squad/addSquad"
 import Leaders from "@/components/leader/leaders"
 
@@ -8,6 +9,7 @@ export default function Home() {
   function runningMode() {
     if (deployMode !== 'S3') {
       return <>
+        <UserProfileItems className="px-4" />
         <AddSquad />
       </>
     } else {

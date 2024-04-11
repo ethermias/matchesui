@@ -28,7 +28,7 @@ export default function Footer() {
               />
             </Link>
             <Link href="/changelog">
-              <Label>v0.1.3</Label>
+              <Label>v0.1.4</Label>
             </Link>
           </div>
         </div>

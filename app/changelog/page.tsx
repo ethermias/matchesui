@@ -29,7 +29,11 @@ export default function Home() {
       "version": "v0.1.3",
       "description": "soccer field updated. team selection dropdown, haeder and footer component",
       "release": "Apr 5, 2024"
-  }]
+  },{
+    "version": "v0.1.4",
+    "description": "sign up and sign in pages, players salary 101 caculation added",
+    "release": "Apr 12, 2024"
+}]
     return (
         <Table>
         <TableCaption>Score breaking will be available next Saturday on version v0.1.3</TableCaption>     

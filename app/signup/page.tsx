@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +10,7 @@ import { Label } from "@/components/ui/label";
 const USERNAME_REGEX = /^(?!.*@)[a-zA-Z][a-zA-Z\d]*[a-zA-Z][a-zA-Z\d]*$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function UserSignUp( {}: React.ComponentProps<"form">) {
+function UserSignUp() {
     const className = "px-4"
     const router = useRouter();
     const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ function UserSignUp( {}: React.ComponentProps<"form">) {
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [isUserNameValid, setIsUserNameValid] = useState(true);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let valid = true;
 
@@ -37,20 +38,20 @@ function UserSignUp( {}: React.ComponentProps<"form">) {
         if (valid) {
             //localStorage.setItem("localtags", userName);
             try {
-
-                const URL = `http://127.0.0.1:8000`
-                const response = await fetch(`${URL}/api/user/signup`, {
+                const URL = "http://127.0.0.1:8000/api/user/signup"
+                const response = await fetch(URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         email: email,
-                        userName: userName
+                        userName: userName,
+                        submittedAt: Date.now()
                     })
                 });
                 if (response.ok) {
-                    router.push('/rules');
+                    router.push('/squad');
                     console.log('Data successfully posted to the server');
                 } else {
                     console.error('Failed to post data to the server');
@@ -94,12 +95,16 @@ function UserSignUp( {}: React.ComponentProps<"form">) {
                     <ul>
                         <li>* The username must contain at least two letters.</li>
                         <li>* The first letter of the username must be alphabetical.</li>
-                        <li>* The username must not contain the "@" symbol.</li>
+                        <li>* The username must not contain the @ symbol.</li>
                     </ul>
                 </>
                 }
                 <Button type="submit" disabled={isSubmitDisabled}>Subscribe</Button>
             </form>
+            <Link href="/signin">
+                <p> <a href="#">Already have an account? Sign In</a></p>
+            </Link>
+
         </>
     );
 }

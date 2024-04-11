@@ -13,7 +13,7 @@ function UserProfileItems({ className }: React.ComponentProps<"form">) {
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [isUsernameValid, setIsUsernameValid] = useState(true);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let valid = true;
 

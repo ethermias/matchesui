@@ -61,7 +61,7 @@ export default function AddSquad() {
 
     <div className="flex">
       <div className="w-1/2">
-        <p>You have used $<b style={{ color: 'red' }}>{sq}</b> of the player&apos;s salary from your allocated total of $55,000.</p>
+        <p>You have used  👉<b style={{ color: 'green' }}>${sq}</b> 🤷‍♂️👈 of the player&apos;s salary from your allocated total of  👉<b style={{ color: 'green' }}>$55,000 🤷‍♂️ 🤷‍♂️</b> 👈</p>
         <SearchPlayers onSubmit={searchPlayers} />
       </div>
     </div>

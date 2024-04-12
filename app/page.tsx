@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Leaders from "@/components/leader/leaders"
+import { Button } from "@/components/ui/button";
 
 const deployMode = process.env.DEPLOY_MODE || 'Ec2';
 
@@ -17,11 +18,11 @@ export default function Home() {
     return <>
       <p> 🎈 Welcome back! Enter your credentials and jump right back into the action.🎈 </p>
       <Link href="/signin">
-        <p> <a href="#" onClick={toggleForm}  className="button">🔑 👉 👉 Sign In: Already part of the party 💃💃? 👈</a></p>
+        <p> <a href="#" onClick={toggleForm}  className="button">🔑 👉 👉 : Already part of the party 💃💃?<Button>Sign In</Button> 👈</a></p>
       </Link>
       <p>🎈Let&apos;s make memories, share laughs, and create unforgettable experiences together!🎈</p>
       <Link href="/signup">
-        <p> <a href="#" onClick={toggleForm}>🚀 👉 👉Sign Up: New to the party 💃💃? 👈 </a> </p>
+        <p> <a href="#" onClick={toggleForm}>🚀 👉 👉 New to the party 💃💃? <Button>Sign Up</Button> 👈</a></p>
       </Link>
     </>
   }

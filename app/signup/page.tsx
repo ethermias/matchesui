@@ -16,6 +16,7 @@ function UserSignUp() {
     const [email, setEmail] = useState('');
     const [userName, setUserName] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(true);
+    const [userError, setUserError] = useState(false);
     const [isUserNameValid, setIsUserNameValid] = useState(true);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -53,11 +54,14 @@ function UserSignUp() {
                 if (response.ok) {
                     const data = await response.json();
                     console.log(data)
-                    if(data.isValid){
+                    if (data.isValid) {
                         setUserName(data.user.userName)
                         setEmail(data.user.email)
+                        router.push('/squad');
+                    } else {
+                        setUserError(true)
                     }
-                    router.push('/squad');
+
                     console.log('Data successfully posted to the server');
                 } else {
                     console.error('Failed to post data to the server');
@@ -107,6 +111,7 @@ function UserSignUp() {
                 }
                 <Button type="submit" disabled={isSubmitDisabled}>Subscribe</Button>
             </form>
+            {userError && <p style={{ color: 'red' }}> User Name or Email not found </p>}
             <Link href="/signin">
                 <p> <a href="#">Already have an account? Sign In</a></p>
             </Link>

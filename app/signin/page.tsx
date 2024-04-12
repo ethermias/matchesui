@@ -12,6 +12,7 @@ function UserSignIn() {
     const className = "px-4"
     const router = useRouter();
     const [userInput, setUserInput] = useState('');
+    const [userError, setUserError] = useState(false);
     const { setUserName, setEmail } = useAppContext()
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -29,11 +30,14 @@ function UserSignIn() {
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
-                if(data.isValid){
+                if (data.isValid) {
                     setUserName(data.user.userName)
                     setEmail(data.user.email)
+                    router.push('/squad');
+                } else {
+                    setUserError(true)
                 }
-                router.push('/squad');
+
                 console.log('Data successfully posted to the server');
             } else {
                 console.error('Failed to post data to the server');
@@ -58,6 +62,7 @@ function UserSignIn() {
 
             <Button type="submit" disabled={userInput.length < 4}>sign in </Button>
         </form>
+        {userError && <p style={{ color: 'red' }}> User Name or Email not found </p>}
         <Link href="/signup">
             <p>  <a href="#"> Don&apos;t have an account? Sign Up</a> </p>
         </Link>

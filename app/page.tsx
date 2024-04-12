@@ -15,14 +15,14 @@ export default function Home() {
 
   function runningMode() {
     return <>
-
-        <Link href="/signin">
-          <p> <a href="#" onClick={toggleForm}>Already have an account? Sign In</a></p>
-        </Link>
-        Chipo
-        <Link href="/signup">
-          <p>  <a href="#" onClick={toggleForm}> Don&apos;t have an account? Sign Up</a> </p>
-        </Link>
+      <p> 🎈 Hey there! Ready to join the fun? Sign in or sign up below to unlock exclusive access to our exciting world of entertainment, games, and surprises!🎈</p>
+      <Link href="/signin">
+        <p> <a href="#" onClick={toggleForm}>🔑 Sign In: Already part of the party? Welcome back! Enter your credentials and jump right back into the action.</a></p>
+      </Link>
+      <Link href="/signup">
+        <p>  <a href="#" onClick={toggleForm}>🚀 Sign Up: New to the party? Get ready for an adventure! Join us now to create your own account and start exploring all the amazing features we have to offer.</a> </p>
+      </Link>
+      <p>🎈Let&apos;s make memories, share laughs, and create unforgettable experiences together! Don&apos;t miss out on the fun - sign in or sign up today! 🎈</p>
     </>
   }
 

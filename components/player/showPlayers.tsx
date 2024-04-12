@@ -85,7 +85,10 @@ const ShowPlayers: React.FC<ShowPlayersProps> = ({ players, squad, addSquad }) =
                     {player.jersey} {player.name}
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    {fullPosition(player.position)} ${player.salary}
+                    {fullPosition(player.position)} 
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Player Salary: ${player.salary}
                   </p>
                   <Button variant="outline" size='sm' value={player.id} onClick={handleClick} disabled={checkSquad(player)}>
                     Add To your Squad

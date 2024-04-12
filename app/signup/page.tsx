@@ -51,6 +51,12 @@ function UserSignUp() {
                     })
                 });
                 if (response.ok) {
+                    const data = await response.json();
+                    console.log(data)
+                    if(data.isValid){
+                        setUserName(data.user.userName)
+                        setEmail(data.user.email)
+                    }
                     router.push('/squad');
                     console.log('Data successfully posted to the server');
                 } else {

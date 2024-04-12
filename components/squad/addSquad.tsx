@@ -11,12 +11,14 @@ import { Label } from "../ui/label";
 import SearchPlayers from "../player/searchPlayers";
 import ShowPlayers from "../player/showPlayers";
 import usePlayers from "@/hooks/usePlayers";
+import { useAppContext } from "../app-provider";
 
 export default function AddSquad() {
   const { toast } = useToast()
   const { players, searchPlayers } = usePlayers()
   const { squad, addSquad, removeSquad, removeAllSquad } = useSquad()
   const [ input, setInput ] = useState("");
+  const { userName, email } = useAppContext()
   
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,6 +56,7 @@ export default function AddSquad() {
   const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
 
   return (<>
+    <p>📍 Logged in as {userName} - {email} </p>
     <Label>📍 Select your best 11 for MatchDay 33 </Label>
 
     <div className="flex">

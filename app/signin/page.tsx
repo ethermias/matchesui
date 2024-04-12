@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAppContext } from "@/components/app-provider";
 
 function UserSignIn() {
     const className = "px-4"
     const router = useRouter();
     const [userInput, setUserInput] = useState('');
+    const { setUserName, setEmail } = useAppContext()
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -25,6 +27,12 @@ function UserSignIn() {
                 body: JSON.stringify(bodyData)
             });
             if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                if(data.isValid){
+                    setUserName(data.user.userName)
+                    setEmail(data.user.email)
+                }
                 router.push('/squad');
                 console.log('Data successfully posted to the server');
             } else {
@@ -38,7 +46,7 @@ function UserSignIn() {
     return (<>
         <form className={cn("grid items-start gap-4", className)} onSubmit={handleSubmit}>
 
-            <Label htmlFor="userInput">userInput or Email</Label>
+            <Label htmlFor="userInput">User Name or Email</Label>
             <Input
                 id="userInput"
                 value={userInput}

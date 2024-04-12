@@ -6,6 +6,7 @@ import TagBar from "../components/bar/tag";
 import Footer from "../components/bar/footer";
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider";
+import { AppWrapper } from "@/components/app-provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <AppWrapper>
           <div className="flex flex-col h-screen">
             <Header />
             <div className="py-10 flex-grow overflow-y-auto">
@@ -40,6 +42,7 @@ export default function RootLayout({
             </div>
             <Footer />
           </div>
+          </AppWrapper>
         </ThemeProvider>
       </body>
     </html>

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from "react";
 import Link from "next/link";
-import AddSquad from "../components/squad/addSquad"
 import Leaders from "@/components/leader/leaders"
 
 const deployMode = process.env.DEPLOY_MODE || 'Ec2';

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Trophy, CalendarCheck2, Scale, LucideHome } from "lucide-react";
 import { Label } from "../ui/label";
 import { useTheme } from 'next-themes';
+import { version } from "@/constants";
 
 const bgColor = (tm: string | undefined) => tm == 'light' ?  'bg-slate-100' : 'bg-gray-900'
 export default function Footer() {
@@ -28,7 +29,7 @@ export default function Footer() {
               />
             </Link>
             <Link href="/changelog">
-              <Label>v0.1.4</Label>
+              <Label>{version}</Label>
             </Link>
           </div>
         </div>

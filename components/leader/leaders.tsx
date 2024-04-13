@@ -1,4 +1,5 @@
 import leaders31 from './tags.json'
+import { matchweek } from "@/constants";
 import {
   Table,
   TableBody,
@@ -26,11 +27,11 @@ const sortLeaders = (theLeaders: Array<TLeader>) => {
 }
 
 const Leaders= () => {
-const title = "Top leader for Matchday 31 📺"
+const title = `Top leader for Matchday ${matchweek} 📺`
 
 const sortedLeaders31 = sortLeaders(leaders31)
   return (<>
-     <Label>📍 Winner Matchday 31 📺 </Label>
+     <Label>📍 Winner Matchday ${matchweek} 📺 </Label>
     
     <Table>
       <TableCaption>{title}</TableCaption>

@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Leaders from "@/components/leader/leaders"
 import { Button } from "@/components/ui/button";
-
-const deployMode = process.env.DEPLOY_MODE || 'Ec2';
-
+import { deployMode } from "@/constants";
 
 export default function Home() {
   const [showSignIn, setShowSignIn] = useState(true);

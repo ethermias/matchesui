@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../components/bar/header";
+import Header from "../components/header";
 import TagBar from "../components/bar/tag";
-import Footer from "../components/bar/footer";
+import Footer from "../components/footer";
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppWrapper } from "@/components/app-provider";
-
-
+import { Body } from "@/components/body";
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "ችቦ",
   description: "Chibo(ችቦ) Multimedia Platforms",
@@ -31,17 +29,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppWrapper>
-          <div className="flex flex-col h-screen">
             <Header />
-            <div className="py-10 flex-grow overflow-y-auto">
-              <div className="max-w-lg mx-auto bg-slate-10 rounded-md p-100 space-y-6 mt-4">
+             <Body>
                 <Toaster />
                 <TagBar />
                 {children}
-              </div>
-            </div>
+            </Body>
             <Footer />
-          </div>
           </AppWrapper>
         </ThemeProvider>
       </body>

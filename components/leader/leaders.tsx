@@ -1,4 +1,5 @@
-import leaders_tags from './tags.json'
+'use client'
+import tags from './tags.json'
 import { matchweek } from "@/constants";
 import {
   Table,
@@ -20,7 +21,7 @@ interface TLeader  {
     submittedAt: string
 }
 const sortLeaders = (theLeaders: Array<TLeader> | []) => {
-  if (theLeaders && theLeaders.length > 1){
+  if (theLeaders.length > 1){
     return theLeaders.sort((a, b) => b.score - a.score) 
   } 
     return theLeaders
@@ -29,7 +30,7 @@ const sortLeaders = (theLeaders: Array<TLeader> | []) => {
 const Leaders= () => {
 const title = `Top leader for Matchday ${matchweek} 📺`
 
-const sortedleaders = leaders_tags ? sortLeaders(leaders_tags) : []
+const sortedleaders = sortLeaders(tags)
   return (<>
      <Label>📍 Winner Matchday ${matchweek} 📺 </Label>
     
@@ -44,13 +45,13 @@ const sortedleaders = leaders_tags ? sortLeaders(leaders_tags) : []
         </TableRow>
       </TableHeader>
       <TableBody>
-        {/* {sortedleaders && sortedleaders.map((leader: TLeader ) => (
+        {sortedleaders.map((leader: TLeader ) => (
           <TableRow key={leader.tag}>
             <TableCell className="font-small">{leader.tag}</TableCell>
             <TableCell className="font-small"><Moment>{new Date(parseInt(leader.submittedAt))}</Moment></TableCell>
             <TableCell className="text-right">{leader.score}</TableCell>
           </TableRow>
-        ))} */}
+        ))}
       </TableBody>
     </Table>
     </>

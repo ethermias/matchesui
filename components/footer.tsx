@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { Trophy, CalendarCheck2, Scale, LucideHome } from "lucide-react";
-import { Label } from "../ui/label";
+import { Label } from "./ui/label";
 import { useTheme } from 'next-themes';
 import { version } from "@/constants";
 

@@ -32,7 +32,7 @@ const title = `Top leader for Matchday ${matchweek} 📺`
 
 const sortedleaders = sortLeaders(tags)
   return (<>
-     <Label>📍 Winner Matchday ${matchweek} 📺 </Label>
+     <Label>📍 Winner Matchday {matchweek} 📺 </Label>
     
     <Table>
       <TableCaption>{title}</TableCaption>

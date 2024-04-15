@@ -1,5 +1,3 @@
-
-'use client'
 import {
     Table,
     TableBody,
@@ -39,9 +37,9 @@ export default function Home() {
         <TableCaption>Score breaking will be available next Saturday on version v0.1.3</TableCaption>     
         <TableHeader>
           <TableRow>
-            <TableHead className="text-left">Version</TableHead>
-            <TableHead className="w-[200px]">description</TableHead>
-            <TableHead className="text-right">release date</TableHead>
+            <TableHead className="text-lef tw-[25px]">Version</TableHead>
+            <TableHead className="w-[300px]">description</TableHead>
+            <TableHead className="text-right w-[125px]">release date</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

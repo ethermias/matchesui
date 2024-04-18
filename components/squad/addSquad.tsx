@@ -12,20 +12,21 @@ import SearchPlayers from "../player/searchPlayers";
 import ShowPlayers from "../player/showPlayers";
 import usePlayers from "@/hooks/usePlayers";
 import { useAppContext } from "../app-provider";
+import { URL, matchweek } from "@/constants";
+import BasicCard from "../basic/BasicCard";
 
 export default function AddSquad() {
   const { toast } = useToast()
   const { players, searchPlayers } = usePlayers()
   const { squad, addSquad, removeSquad, removeAllSquad } = useSquad()
-  const [ input, setInput ] = useState("");
+  const [input, setInput] = useState("");
   const { userName, email } = useAppContext()
-  
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const submittedAt = Date.now()
     try {
-      const URL = `http://127.0.0.1:8000`
       const response = await fetch(`${URL}/api/lineup`, {
         method: 'POST',
         headers: {
@@ -54,35 +55,34 @@ export default function AddSquad() {
   }
 
   const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
-
+  const description = <p>{`You have used ${sq} out of $55,000 allocated from the total salary.`} </p>
   return (<>
-    <p>📍 Logged in as {userName} - {email} </p>
-    <Label>📍 Select your best 11 for Matchweek 33 </Label>
-
-    <div className="flex">
-      <div className="w-1/2">
-        <p>You have used  👉<b style={{ color: 'green' }}>${sq}</b> 🤷‍♂️👈 of the player&apos;s salary from your allocated total of  👉<b style={{ color: 'green' }}>$55,000 🤷‍♂️ 🤷‍♂️</b> 👈</p>
-        <SearchPlayers onSubmit={searchPlayers} />
+    <BasicCard
+      title={`📍 Select best 11 ${userName}  🤷 ${email}`} description={description}>
+      <div className="flex">
+        <div className="w-1/2">
+          <SearchPlayers onSubmit={searchPlayers} />
+        </div>
       </div>
-    </div>
-    <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
-    <SoccerField squad={squad} removeSquad={removeSquad} />
-    <form className="flex" onSubmit={handleSubmit}>
-      <Input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="pick your best 11, add your tag and save"
-        className="rounded-s-md grow border border-gray-400 p-2"
-        disabled={squad.length !== 11}
-      />
-      <Button
-        type="submit"
-        className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
-        disabled={input === ''}
-      >
-        Save
-      </Button>
-    </form>
+      <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+      <SoccerField squad={squad} removeSquad={removeSquad} />
+      <form className="flex" onSubmit={handleSubmit}>
+        <Input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="pick your best 11, add your tag and save"
+          className="rounded-s-md grow border border-gray-400 p-2"
+          disabled={squad.length !== 11}
+        />
+        <Button
+          type="submit"
+          className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
+          disabled={input === ''}
+        >
+          Save
+        </Button>
+      </form>
+    </BasicCard>
   </>
   );
 }

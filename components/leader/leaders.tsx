@@ -13,27 +13,30 @@ import {
 } from "../ui/table"
 import Moment from 'moment';
 import { Label } from '../ui/label'
+import Winner from "../static/winner";
+import Schedule from "../static/schedule";
+import Rules from "../static/rules";
 
 
-interface TLeader  {
-    tag: string,
-    score: number,
-    submittedAt: string
+interface TLeader {
+  tag: string,
+  score: number,
+  submittedAt: string
 }
 const sortLeaders = (theLeaders: Array<TLeader> | []) => {
-  if (theLeaders.length > 1){
-    return theLeaders.sort((a, b) => b.score - a.score) 
-  } 
-    return theLeaders
+  if (theLeaders.length > 1) {
+    return theLeaders.sort((a, b) => b.score - a.score)
+  }
+  return theLeaders
 }
 
-const Leaders= () => {
-const title = `📍 Top leader for Matchweek ${matchweek} 📺`
+const Leaders = () => {
+  const title = `📍 Top leader for Matchweek ${matchweek} 📺`
 
-const sortedleaders = sortLeaders(tags)
+  const sortedleaders = sortLeaders(tags)
   return (<>
-     <Label>📍 Winner Matchweek {matchweek - 1} 📺 </Label>
-    
+    <Label>📍 Winner Matchweek {matchweek - 1} 📺 </Label>
+
     <Table>
       <TableCaption>{title}</TableCaption>
       {/* <TableCaption>📍 Score breaking will be available soon </TableCaption>   */}
@@ -45,7 +48,7 @@ const sortedleaders = sortLeaders(tags)
         </TableRow>
       </TableHeader>
       <TableBody>
-        {sortedleaders.map((leader: TLeader ) => (
+        {sortedleaders.map((leader: TLeader) => (
           <TableRow key={leader.tag}>
             <TableCell className="font-small">{leader.tag}</TableCell>
             <TableCell className="font-small">
@@ -56,7 +59,10 @@ const sortedleaders = sortLeaders(tags)
         ))}
       </TableBody>
     </Table>
-    </>
+    <Schedule />
+    <Winner />
+    <Rules />
+  </>
   )
 }
 

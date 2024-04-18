@@ -8,7 +8,12 @@ import {
   CardDescription
 } from "../ui/card";
 
-export default function BasicCard({ children, title, description = '' }: { children: ReactNode, title: ReactNode, description?: string }) {
+type TBasicCard = {
+  children: ReactNode,
+  title: ReactNode,
+  description?: ReactNode
+}
+export default function BasicCard({ children, title, description = <></> }: TBasicCard) {
   return (
     <Card>
       <CardHeader>
@@ -16,7 +21,7 @@ export default function BasicCard({ children, title, description = '' }: { child
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-          {children}
+        {children}
       </CardContent>
     </Card>
 

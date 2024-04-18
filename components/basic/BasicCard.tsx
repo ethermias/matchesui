@@ -10,10 +10,10 @@ import {
 
 type TBasicCard = {
   children: ReactNode,
-  title: ReactNode,
+  title?: ReactNode,
   description?: ReactNode
 }
-export default function BasicCard({ children, title, description = <></> }: TBasicCard) {
+export default function BasicCard({ children, title = <></>, description = <></> }: TBasicCard) {
   return (
     <Card>
       <CardHeader>

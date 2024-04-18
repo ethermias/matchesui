@@ -55,33 +55,46 @@ export default function AddSquad() {
   }
 
   const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
-  const description = <p>{`You have used ${sq} out of $55,000 allocated from the total salary.`} </p>
   return (<>
     <BasicCard
-      title={`📍 Select best 11 ${userName}  🤷 ${email}`} description={description}>
-      <div className="flex">
-        <div className="w-1/2">
-          <SearchPlayers onSubmit={searchPlayers} />
+      title={`You have used $${sq} out of $55,000`}
+      description={
+        <>
+          <p>📍 Loged in as {userName} - {email}</p>
+       </>
+      }
+    >
+      <BasicCard
+      description='📍 The sum of the total allocated salary cap for 11 players should be no more than $55,000. Please select best 11'
+      title={
+        <div className="flex">
+          <div className="w-1/2">
+            <SearchPlayers onSubmit={searchPlayers} />
+          </div>
         </div>
-      </div>
-      <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+      }>
+        <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+      </BasicCard>
       <SoccerField squad={squad} removeSquad={removeSquad} />
-      <form className="flex" onSubmit={handleSubmit}>
-        <Input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="pick your best 11, add your tag and save"
-          className="rounded-s-md grow border border-gray-400 p-2"
-          disabled={squad.length !== 11}
-        />
-        <Button
-          type="submit"
-          className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
-          disabled={input === ''}
-        >
-          Save
-        </Button>
-      </form>
+
+      <BasicCard>
+        <form className="flex" onSubmit={handleSubmit}>
+          <Input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="pick your best 11, add your tag and save"
+            className="rounded-s-md grow border border-gray-400 p-2"
+            disabled={squad.length !== 11}
+          />
+          <Button
+            type="submit"
+            className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
+            disabled={input === ''}
+          >
+            Save
+          </Button>
+        </form>
+      </BasicCard>
     </BasicCard>
   </>
   );

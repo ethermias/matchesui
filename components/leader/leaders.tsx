@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table"
-import Moment from 'react-moment'
+import Moment from 'moment';
 import { Label } from '../ui/label'
 
 
@@ -28,11 +28,11 @@ const sortLeaders = (theLeaders: Array<TLeader> | []) => {
 }
 
 const Leaders= () => {
-const title = `Top leader for Matchday ${matchweek} 📺`
+const title = `Top leader for Matchweek ${matchweek} 📺`
 
 const sortedleaders = sortLeaders(tags)
   return (<>
-     <Label>📍 Winner Matchday {matchweek} 📺 </Label>
+     <Label>📍 Winner Matchweek {matchweek} 📺 </Label>
     
     <Table>
       <TableCaption>{title}</TableCaption>
@@ -41,14 +41,16 @@ const sortedleaders = sortLeaders(tags)
         <TableRow>
           <TableHead className="text-left">Tags</TableHead>
           <TableHead className="w-[200px]">Submitted</TableHead>
-          <TableHead className="text-right">score</TableHead>
+          <TableHead className="text-right w-[50px]">score</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {sortedleaders.map((leader: TLeader ) => (
           <TableRow key={leader.tag}>
             <TableCell className="font-small">{leader.tag}</TableCell>
-            <TableCell className="font-small"><Moment>{new Date(parseInt(leader.submittedAt))}</Moment></TableCell>
+            <TableCell className="font-small">
+              {Moment(new Date(parseInt(leader.submittedAt))).format('MMM DD YYYY HH:mm')}
+            </TableCell>
             <TableCell className="text-right">{leader.score}</TableCell>
           </TableRow>
         ))}

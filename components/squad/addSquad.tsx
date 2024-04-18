@@ -57,7 +57,7 @@ export default function AddSquad() {
 
   return (<>
     <p>📍 Logged in as {userName} - {email} </p>
-    <Label>📍 Select your best 11 for MatchDay 33 </Label>
+    <Label>📍 Select your best 11 for Matchweek 33 </Label>
 
     <div className="flex">
       <div className="w-1/2">

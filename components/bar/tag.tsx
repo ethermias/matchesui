@@ -11,14 +11,14 @@ export default function TagBar() {
     },
     {
       id: 2,
-      title: "Matchday 33 📺 ",
+      title: "Matchweek 33 📺 ",
       completed: false,
     }
   ];
   return (
     <div className="text-center py-6 space-y-6 mt-4" >
       <div className="flex items-center space-x-6">
-        {tags.map((t) => <span>{ t.title }</span>
+        {tags.map((t) => <span key={t.id}>{ t.title }</span>
         )}
         {/* <Countdown date={targetDate} /> */}
       </div>

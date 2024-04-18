@@ -1,6 +1,8 @@
 export const URL = 'http://127.0.0.1:8000'
 export const deployMode = process.env.DEPLOY_MODE || 'S3';
 export const matchweek = 33
+export const winner = "St. G"
+export const winnerPoint = 23
 export const version  = 'v0.1.4'
 
 

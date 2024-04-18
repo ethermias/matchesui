@@ -28,15 +28,15 @@ const sortLeaders = (theLeaders: Array<TLeader> | []) => {
 }
 
 const Leaders= () => {
-const title = `Top leader for Matchweek ${matchweek} 📺`
+const title = `📍 Top leader for Matchweek ${matchweek} 📺`
 
 const sortedleaders = sortLeaders(tags)
   return (<>
-     <Label>📍 Winner Matchweek {matchweek} 📺 </Label>
+     <Label>📍 Winner Matchweek {matchweek - 1} 📺 </Label>
     
     <Table>
       <TableCaption>{title}</TableCaption>
-      <TableCaption>📍 Score breaking will be available soon </TableCaption>  
+      {/* <TableCaption>📍 Score breaking will be available soon </TableCaption>   */}
       <TableHeader>
         <TableRow>
           <TableHead className="text-left">Tags</TableHead>

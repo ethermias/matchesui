@@ -5,7 +5,7 @@ import UserProfile from "./bar/userProfile";
 import { useTheme } from 'next-themes';
 
 //const bgColor = (tm: string | undefined) => tm == 'light' ?  'bg-slate-100' : 'bg-gray-900'
-const bgColor = (tm: string | undefined) => ''
+const bgColor = (tm: string | undefined) => tm == 'light' ?  'bg-slate-100' : 'bg-gray-900'
 
 export default function Home() {
     const { theme } = useTheme()

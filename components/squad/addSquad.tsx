@@ -14,9 +14,10 @@ import usePlayers from "@/hooks/usePlayers";
 import { useAppContext } from "../app-provider";
 import { URL, matchweek } from "@/constants";
 import BasicCard from "../basic/basicCard";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
-import { CardContent } from "../ui/card";
+import { CardContent, CardDescription } from "../ui/card";
 import { Content } from "../basic/content";
+import SquadTable from "./squadTable";
+import { ShoppingCart } from "lucide-react";
 
 export default function AddSquad() {
   const { toast } = useToast()
@@ -25,20 +26,7 @@ export default function AddSquad() {
   const [input, setInput] = useState("");
   const { userName, email } = useAppContext()
 
-  const fullPosition = (pos: string) => {
-    switch (pos) {
-      case 'G':
-        return "Keeper";
-      case 'D':
-        return "Defender";
-      case 'M':
-        return "Midfielder";
-      case 'F':
-        return "Forward";
-      default:
-        return "";
-    }
-  };
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,10 +59,10 @@ export default function AddSquad() {
     setInput("");
   }
 
-  const sq = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
+  const sum = squad.map(i => i.salary).reduce((a, c) => a + c, 0)
   return (<>
     <BasicCard
-      title={`You have used $${sq} out of $55,000`}
+      title={`You have used $${sum} out of $55,000`}
       description={
         <>
           <p>📍 Loged in as {userName} - {email}</p>
@@ -92,52 +80,29 @@ export default function AddSquad() {
         }>
         <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
       </BasicCard>
-      <Content>
-        <CardContent>
-          {
-            <Table>
-              <TableCaption>Total ${sq}</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="text-lef tw-[300px]">Name</TableHead>
-                  <TableHead className="w-[25px]">Postion</TableHead>
-                  <TableHead className="text-right w-[125px]">Salary</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {squad.map((player: Player) => (
-                  <TableRow key={player.id}>
-                    <TableCell className="font-small">{player.displayName}</TableCell>
-                    <TableCell className="font-small">{fullPosition(player.position)}</TableCell>
-                    <TableCell className="text-right">${player.salary}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          }
-        </CardContent>
-      </Content>
+      <SquadTable sum={sum} squad={squad} />
       <SoccerField squad={squad} removeSquad={removeSquad} />
 
-      <BasicCard>
-        <form className="flex" onSubmit={handleSubmit}>
-          <Input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="pick your best 11, add your tag and save"
-            className="rounded-s-md grow border border-gray-400 p-2"
-            disabled={squad.length !== 11}
-          />
-          <Button
-            type="submit"
-            className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
-            disabled={input === ''}
-          >
-            Save
-          </Button>
-        </form>
-      </BasicCard>
-
+      <Content>
+        <CardContent className="my-4">
+          <form className="flex" onSubmit={handleSubmit}>
+            <Input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="pick your best 11, add your tag and save"
+              className="rounded-s-md grow border border-gray-400 p-2"
+              disabled={squad.length !== 11}
+            />
+            <Button
+              type="submit"
+              className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
+              disabled={input === ''}
+            >
+              Save
+            </Button>
+          </form>
+        </CardContent>
+      </Content>
     </BasicCard>
   </>
   );

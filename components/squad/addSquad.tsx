@@ -13,9 +13,9 @@ import ShowPlayers from "../player/showPlayers";
 import usePlayers from "@/hooks/usePlayers";
 import { useAppContext } from "../app-provider";
 import { URL, matchweek } from "@/constants";
-import BasicCard from "@/components/basic/basicCard";
+import BasicCard from "@/components/BasicCard";
 import { CardContent, CardDescription } from "../ui/card";
-import { Content } from "@/components/basic/content";
+import { Content } from "@/components/content";
 import SquadTable from "./squadTable";
 import { ShoppingCart } from "lucide-react";
 

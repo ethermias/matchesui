@@ -13,9 +13,9 @@ import {
 } from "../ui/table"
 import Moment from 'moment';
 import { Label } from '../ui/label'
-import Winner from "../static/winner";
-import Schedule from "../static/schedule";
-import Rules from "../static/rules";
+import Winner from "../winner";
+import Schedule from "../schedule";
+import Rules from "../rules";
 
 
 interface TLeader {

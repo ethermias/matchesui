@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription
-} from "../ui/card";
+} from "./ui/card";
 
 type TBasicCard = {
   children: ReactNode,

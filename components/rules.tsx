@@ -1,6 +1,6 @@
-import BasicCard from "@/components/basic/basicCard";
+import BasicCard from "@/components/BasicCard";
 import { Scale } from "lucide-react";
-import BasicIcon from "@/components/basic/basicIcon";
+import BasicIcon from "./BasicIcon";
 const Title = () => <BasicIcon label={` Rules to determine the Winner`}><Scale /></BasicIcon>
 export default function Rules() {
     return (

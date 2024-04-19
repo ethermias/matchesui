@@ -1,7 +1,7 @@
 import { Player } from "@/types/player";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "../ui/table";
 import { CardContent, CardDescription, CardTitle } from "../ui/card";
-import { Content } from "@/components/basic/content";
+import { Content } from "@/components/content";
 import { ShoppingCart } from "lucide-react";
 
 type TSquadTable ={

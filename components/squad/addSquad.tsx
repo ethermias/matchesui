@@ -13,7 +13,10 @@ import ShowPlayers from "../player/showPlayers";
 import usePlayers from "@/hooks/usePlayers";
 import { useAppContext } from "../app-provider";
 import { URL, matchweek } from "@/constants";
-import BasicCard from "../basic/BasicCard";
+import BasicCard from "../basic/basicCard";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
+import { CardContent } from "../ui/card";
+import { Content } from "../basic/content";
 
 export default function AddSquad() {
   const { toast } = useToast()
@@ -22,6 +25,20 @@ export default function AddSquad() {
   const [input, setInput] = useState("");
   const { userName, email } = useAppContext()
 
+  const fullPosition = (pos: string) => {
+    switch (pos) {
+      case 'G':
+        return "Keeper";
+      case 'D':
+        return "Defender";
+      case 'M':
+        return "Midfielder";
+      case 'F':
+        return "Forward";
+      default:
+        return "";
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,20 +78,45 @@ export default function AddSquad() {
       description={
         <>
           <p>📍 Loged in as {userName} - {email}</p>
-       </>
+        </>
       }
     >
       <BasicCard
-      description='📍 The sum of the total allocated salary cap for 11 players should be no more than $55,000. Please select best 11'
-      title={
-        <div className="flex">
-          <div className="w-1/2">
-            <SearchPlayers onSubmit={searchPlayers} />
+        description='📍 The sum of the total allocated salary cap for 11 players should be no more than $55,000. Please select best 11'
+        title={
+          <div className="flex">
+            <div className="w-1/2">
+              <SearchPlayers onSubmit={searchPlayers} />
+            </div>
           </div>
-        </div>
-      }>
+        }>
         <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
       </BasicCard>
+      <Content>
+        <CardContent>
+          {
+            <Table>
+              <TableCaption>Total ${sq}</TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-lef tw-[300px]">Name</TableHead>
+                  <TableHead className="w-[25px]">Postion</TableHead>
+                  <TableHead className="text-right w-[125px]">Salary</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {squad.map((player: Player) => (
+                  <TableRow key={player.id}>
+                    <TableCell className="font-small">{player.displayName}</TableCell>
+                    <TableCell className="font-small">{fullPosition(player.position)}</TableCell>
+                    <TableCell className="text-right">${player.salary}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          }
+        </CardContent>
+      </Content>
       <SoccerField squad={squad} removeSquad={removeSquad} />
 
       <BasicCard>
@@ -95,6 +137,7 @@ export default function AddSquad() {
           </Button>
         </form>
       </BasicCard>
+
     </BasicCard>
   </>
   );

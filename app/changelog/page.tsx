@@ -31,6 +31,10 @@ export default function Home() {
     "version": "v0.1.4",
     "description": "sign up and sign in pages, players salary 101 caculation added",
     "release": "Apr 12, 2024"
+},{
+  "version": "v0.1.5",
+  "description": "ui pages updates, salary breakdown table added",
+  "release": "Apr 19, 2024"
 }]
     return (
         <Table>

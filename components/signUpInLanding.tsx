@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import BasicCard from './basic/BasicCard';
+import BasicCard from './basic/basicCard';
 
 export function SignUpInLanding() {
     return  <BasicCard title='🎈 Welcome back!' description='Enter your credentials and jump right back into the action.🎈'>

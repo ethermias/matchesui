@@ -17,8 +17,8 @@ export default function BasicCard({ children, title = <></>, description = <></>
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        { title !== <></> && <CardTitle>{title}</CardTitle> }
+        { description !== <></> && <CardDescription>{description}</CardDescription> }
       </CardHeader>
       <CardContent>
         {children}

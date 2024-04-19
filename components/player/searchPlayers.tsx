@@ -31,27 +31,26 @@ const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
   return (
     <div>
 
-        <Select onValueChange={handleSubmit}>
-          <SelectTrigger className="w-[230px]">
-            <SelectValue placeholder="Select player team" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Popular</SelectLabel>
-              {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-            </SelectGroup>
-            <SelectGroup>
-              <SelectLabel>Mid table</SelectLabel>
-              {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-            </SelectGroup>
-            <SelectGroup>
-              <SelectLabel>Bottom</SelectLabel>
-              {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-
-        {teamShort && <SearchPlayersServer input={teamShort} />}
+      <Select onValueChange={handleSubmit}>
+        <SelectTrigger className="w-[230px]">
+          <SelectValue placeholder="Select player team" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Bottom - affordable </SelectLabel>
+            {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>Average </SelectLabel>
+            {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>High In Demand</SelectLabel>
+            {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+      {teamShort && <SearchPlayersServer input={teamShort} />}
 
     </div>
   );

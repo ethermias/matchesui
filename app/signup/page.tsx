@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { URL } from "@/constants";
 
 const USERNAME_REGEX = /^(?!.*@)[a-zA-Z][a-zA-Z\d]*[a-zA-Z][a-zA-Z\d]*$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,8 +40,7 @@ function UserSignUp() {
         if (valid) {
             //localStorage.setItem("localtags", userName);
             try {
-                const URL = "http://127.0.0.1:8000/api/user/signup"
-                const response = await fetch(URL, {
+                const response = await fetch(`${URL}/api/user/signup"`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

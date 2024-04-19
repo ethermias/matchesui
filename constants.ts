@@ -1,8 +1,12 @@
 export const URL = 'http://127.0.0.1:8000'
-export const deployMode = process.env.DEPLOY_MODE || 'S3';
-export const matchweek = 33
-export const version  = 'v0.1.4'
+export const deployMode = process.env.DEPLOY_MODE || 'S33';
+export const matchweek = 34
+export const winner = "St. G"
+export const winnerPoint = 23
+export const version  = 'v0.1.5'
 
+export const APPOSTROP = '&apos;'
+export const SPACE = '&nbsp;'
 
 export const arr = [
   "Do the best you can. No one can do more than that. - John Wooden",

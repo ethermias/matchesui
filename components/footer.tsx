@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { Trophy, CalendarCheck2, Scale, LucideHome } from "lucide-react";
-import { Label } from "../ui/label";
+import { Label } from "./ui/label";
 import { useTheme } from 'next-themes';
 import { version } from "@/constants";
 
@@ -17,17 +17,7 @@ export default function Footer() {
             <Link href="/">
               <LucideHome className="text-gray-600 hover:text-gray-800 cursor-pointer" />
             </Link>
-            <Link href="/leader">
-              <Trophy className="text-gray-600 hover:text-gray-800 cursor-pointer" />
-            </Link>
-            <Link href="/rules">
-              <Scale className="text-gray-600 hover:text-gray-800 cursor-pointer" />
-            </Link>
-            <Link href="/schedule">
-              <CalendarCheck2
-                className="text-gray-600 hover:text-gray-800 cursor-pointer"
-              />
-            </Link>
+
             <Link href="/changelog">
               <Label>{version}</Label>
             </Link>

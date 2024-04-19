@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAppContext } from "@/components/app-provider";
+import { URL } from "@/constants";
 
 function UserSignIn() {
     const className = "px-4"
@@ -19,7 +20,6 @@ function UserSignIn() {
         event.preventDefault();
         const bodyData = userInput.includes('@') ? { email: userInput, submittedAt: Date.now() } : { userName: userInput, submittedAt: Date.now() }
         try {
-            const URL = `http://127.0.0.1:8000`
             const response = await fetch(`${URL}/api/user/signin`, {
                 method: 'POST',
                 headers: {

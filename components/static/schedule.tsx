@@ -1,8 +1,8 @@
 
-import BasicCard from "../basic/basicCard";
+import BasicCard from "@/components/basic/basicCard";
 import { CalendarCheck2 } from "lucide-react";
 import { matchweek } from "@/constants";
-import BasicIcon from "../basic/basicIcon";
+import BasicIcon from "@/components/basic/basicIcon";
 const Title = () => <BasicIcon label={` ${matchweek} ሳምንት`}><CalendarCheck2/></BasicIcon>
 const week = [
   "Luton Town vs Brentford",

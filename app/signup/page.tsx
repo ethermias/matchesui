@@ -40,7 +40,7 @@ function UserSignUp() {
         if (valid) {
             //localStorage.setItem("localtags", userName);
             try {
-                const response = await fetch(`${URL}/api/user/signup"`, {
+                const response = await fetch(`${URL}/api/user/signup`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

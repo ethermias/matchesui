@@ -41,12 +41,12 @@ const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
             {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
           </SelectGroup>
           <SelectGroup>
-            <SelectLabel>Average </SelectLabel>
-            {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-          </SelectGroup>
-          <SelectGroup>
             <SelectLabel>High In Demand</SelectLabel>
             {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>Average </SelectLabel>
+            {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
           </SelectGroup>
         </SelectContent>
       </Select>

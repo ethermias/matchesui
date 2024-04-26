@@ -4,6 +4,14 @@ export const midTeamArr = [
     "value": "WHU"
   },
   {
+    "label": "Newcastle United",
+    "value": "NEW"
+  },
+  {
+    "label": "Brighton",
+    "value": "BHA"
+  },
+  {
     "label": "Aston Villa",
     "value": "AVL"
   },
@@ -60,7 +68,23 @@ export const highTeamArr = [
     "value": "ARS"
   },
   {
+    "label": "Chelsea",
+    "value": "CHE"
+  },
+  {
     "label": "Liverpool",
     "value": "LIV"
+  },
+  {
+    "label": "Manchester City",
+    "value": "MNC"
+  },
+  {
+    "label": "Manchester United",
+    "value": "MAN"
+  },
+  {
+    "label": "Tottenham Hotspur",
+    "value": "TOT"
   }
 ]

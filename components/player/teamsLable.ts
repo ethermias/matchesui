@@ -27,10 +27,10 @@ export const midTeamArr = [
     "label": "Crystal Palace",
     "value": "CRY"
   },
-  {
-    "label": "Everton",
-    "value": "EVE"
-  },
+  // {
+  //   "label": "Everton",
+  //   "value": "EVE"
+  // },
   {
     "label": "Fulham",
     "value": "FUL"
@@ -43,10 +43,10 @@ export const midTeamArr = [
 
 
 export const bottomTeamArr = [
-  {
-    "label": "Luten",
-    "value": "LTN"
-  },
+  // {
+  //   "label": "Luten",
+  //   "value": "LTN"
+  // },
   {
     "label": "Nottingham Forest",
     "value": "NFO"

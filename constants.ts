@@ -1,9 +1,9 @@
-export const URL = 'http://127.0.0.1:8000'
-export const deployMode = process.env.DEPLOY_MODE || 'S3';
-export const matchweek = 35
-export const winner = "S1"
-export const winnerPoint = 61
-export const version  = 'v0.1.5'
+export const URL = 'http://ethermias.com:8000'
+export const deployMode = process.env.DEPLOY_MODE || 'SS3';
+export const matchweek = 36
+export const winner = "smellyCat"
+export const winnerPoint = 21
+export const version  = 'v0.1.6'
 
 export const APPOSTROP = '&apos;'
 export const SPACE = '&nbsp;'

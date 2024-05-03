@@ -5,16 +5,15 @@ import { matchweek } from "@/constants";
 import BasicIcon from "./BasicIcon";
 const Title = () => <BasicIcon label={` ${matchweek} ሳምንት`}><CalendarCheck2/></BasicIcon>
 const week = [
-  'West Ham United vs Liverpool',
-  'Fulham vs Crystal Palace',
-  'Manchester United vs Burnley',
-  'Newcastle United vs Sheffield United',
-  'Wolverhampton Wanderers vs Luton Town',
-  'Everton vs Brentford',
-  'Aston Villa vs Chelsea',
-  'AFC Bournemouth vs Brighton & Hove Albion',
-  'Tottenham Hotspur vs Arsenal',
-  'Nottingham Forest vs Manchester City'
+  'Arsenal vs AFC Bournemouth',
+  'Brentford vs Fulham',
+  'Burnley vs Newcastle United',
+  'Sheffield United vs Nottingham Forest',
+  'Manchester City vs Wolverhampton Wanderers',
+  'Brighton & Hove Albion vs Aston Villa',
+  'Chelsea vs West Ham United',
+  'Liverpool vs Tottenham Hotspur',
+  'Crystal Palace vs Manchester United',
 ]
 export default function Schedule() {
   return (

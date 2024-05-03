@@ -10,7 +10,6 @@ export default function Rules() {
                     <div>
                         <h1 className="text-sm font-bold mb-1">The Player</h1>
                         <div className="p-0">+7 score a goal</div>
-                        <div className="p-0">+3 assist a goal</div>
                         <div className="p-0">+7 saved a penalty</div>
                         <div className="p-0">-3 missed a penalty</div>
                         <div className="p-0">-1 GK conceded a goal</div>
@@ -18,6 +17,7 @@ export default function Rules() {
                     </div>
                     <div>
                         <h1 className="text-sm font-bold mb-1">Player Team</h1>
+                        <div className="p-0">+3 assist a goal</div>
                         <div className="p-0">+2 win the game</div>
                         <div className="p-0">-1 lost the game</div>
                         <div className="p-0">+1 score a goal</div>

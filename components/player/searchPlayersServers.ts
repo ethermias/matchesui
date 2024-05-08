@@ -8,7 +8,7 @@ interface SearchPlayersServerProps {
 
 export async function playersAPI(input: string) {
   try {
-    const res = await fetch(`${URL}/api/teams/${input}`);
+    const res = await fetch(`/roasters/${input}.json`);
     const data = await res.json();
     return data;
   } catch (err) {

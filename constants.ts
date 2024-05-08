@@ -1,8 +1,8 @@
 export const URL = 'http://ethermias.com:8000'
-export const deployMode = process.env.DEPLOY_MODE || 'SS3';
-export const matchweek = 36
-export const winner = "smellyCat"
-export const winnerPoint = 21
+export const deployMode = process.env.DEPLOY_MODE || 'S3';
+export const matchweek = 37
+export const winner = "jermi"
+export const winnerPoint = 72
 export const version  = 'v0.1.6'
 
 export const APPOSTROP = '&apos;'

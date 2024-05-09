@@ -13,25 +13,45 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { highTeamArr, midTeamArr, bottomTeamArr } from './teamsLable'
-import ShowPlayersDropDown from "./showPlayersDropDown";
-import ShowTeamsDropDown from "./showTeamsDropDown";
 
 interface SearchPlayersProps {
   onSubmit: (player: any) => void;
 }
-type TTeamName= "WHU" | "NEW" | "BHA" | "AVL" | "BRE" | "BOU" | "CRY" | "EVE" | "FUL" | "WOL" | "LTN" | "NFO" | "SHU" | "BUR" | "ARS" | "CHE" | "LIV" | "MNC"
- 
+
+
 const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
-  const [teamShort, setTeamShort] = useState<TTeamName>('LTN');
+  const [teamShort, setTeamShort] = useState();
 
   async function handleSubmit(e: any) {
     setTeamShort(e)
+    const data = await playersAPI(e);
+    onSubmit(data)
   }
 
   return (
-    <div className="inline-flex gap-5">
-      <ShowTeamsDropDown onSubmit={handleSubmit} />
-      <ShowPlayersDropDown teamName={teamShort} addToSquad={(e) => console.log(e)}/>
+    <div>
+
+      <Select onValueChange={handleSubmit}>
+        <SelectTrigger className="w-[230px]">
+          <SelectValue placeholder="Select player team" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Bottom - affordable </SelectLabel>
+            {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>High In Demand</SelectLabel>
+            {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+          <SelectGroup>
+            <SelectLabel>Average </SelectLabel>
+            {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+      {teamShort && <SearchPlayersServer input={teamShort} />}
+
     </div>
   );
 };

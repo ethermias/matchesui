@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import { roasters } from "./roasters";
 import {
   Select,
   SelectContent,
@@ -11,30 +10,27 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-interface ShowPlayersDropDownProps {
-  teamName: "WHU" | "NEW" | "BHA" | "AVL" | "BRE" | "BOU" | "CRY" | "EVE" | "FUL" | "WOL" | "LTN" | "NFO" | "SHU" | "BUR" | "ARS" | "CHE" | "LIV" | "MNC"
-  addToSquad: Function
-}
-type TPlayerDisplay = {
+interface Tplayers {
   i: number
   n: string
   p: string
   j: number
   s: number
 }
+interface ShowPlayersDropDownProps {
+  players: Tplayers[];
+  addToSquad: Function
+}
 
-const ShowPlayersDropDown: React.FC<ShowPlayersDropDownProps> = ({ teamName, addToSquad }) => {
-  const playerDisplay = roasters[teamName]
-
+const ShowPlayersDropDown: React.FC<ShowPlayersDropDownProps> = ({ players, addToSquad }) => {
   function handleSubmit(e: any) {
     addToSquad(e)
   }
-  const keeper = playerDisplay.filter(i => i.p == 'G')
-  const defender = playerDisplay.filter(i => i.p == 'D')
-  const midfielder = playerDisplay.filter(i => i.p == 'M')
-  const forward = playerDisplay.filter(i => i.p == 'F')
+  const keeper = players.filter(i => i.p == 'G')
+  const defender = players.filter(i => i.p == 'D')
+  const midfielder = players.filter(i => i.p == 'M')
+  const forward = players.filter(i => i.p == 'F')
   return (
-    <div>
       <Select onValueChange={handleSubmit}>
         <SelectTrigger className="w-[210px]">
           <SelectValue placeholder="Select player" />
@@ -58,7 +54,6 @@ const ShowPlayersDropDown: React.FC<ShowPlayersDropDownProps> = ({ teamName, add
           </SelectGroup>
         </SelectContent>
       </Select>
-    </div>
   );
 };
 export default ShowPlayersDropDown;

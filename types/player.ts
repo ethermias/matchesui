@@ -16,16 +16,25 @@ export interface  Offensive {
     totalShots: number
 }
 
-export interface Player {
+export interface Player2 {
     id: string,
     name: string
-    citizen: string
-    displayName: string
+    citizen?: string
+    displayName?: string
     jersey: string
     position: string
     salary: number
-    state: {
+    state?: {
         general: General
         offensive: Offensive
     }
 }
+
+export interface Player {
+    id: string,
+    name: string
+    jersey: string
+    position: string
+    salary: number
+}
+

@@ -1,57 +1,31 @@
 'use client'
 import * as React from "react"
-import { useState } from 'react';
-import SearchPlayersServer, { playersAPI } from './searchPlayersServers';
-import ToggleGroups from '../toggleGroups/toggleGroups';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { highTeamArr, midTeamArr, bottomTeamArr } from './teamsLable'
-
-interface SearchPlayersProps {
-  onSubmit: (player: any) => void;
-}
-
+import { useState } from 'react'
+import { roasters } from "./roasters";
+import ShowTeamsDropDown from "./showTeamsDropDown";
+import ShowPlayersDropDown from "./showPlayersDropDown";
+import { TTeamName, SearchPlayersProps } from './types'
 
 const SearchPlayers: React.FC<SearchPlayersProps> = ({ onSubmit }) => {
-  const [teamShort, setTeamShort] = useState();
-
-  async function handleSubmit(e: any) {
+  const [teamShort, setTeamShort] = useState<TTeamName>('NFO');
+  const players = roasters[teamShort]
+  
+  function handleSubmit(e: any) {
     setTeamShort(e)
-    const data = await playersAPI(e);
-    onSubmit(data)
   }
-
+  function handleToSquad(e: any) {
+    onSubmit({
+      id: e.i,
+      name: e.n,
+      jersey: e.j,
+      position: e.p,
+      salary: e.s
+    })
+  }
   return (
-    <div>
-
-      <Select onValueChange={handleSubmit}>
-        <SelectTrigger className="w-[230px]">
-          <SelectValue placeholder="Select player team" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Bottom - affordable </SelectLabel>
-            {bottomTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-          </SelectGroup>
-          <SelectGroup>
-            <SelectLabel>High In Demand</SelectLabel>
-            {highTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-          </SelectGroup>
-          <SelectGroup>
-            <SelectLabel>Average </SelectLabel>
-            {midTeamArr.map(team => <SelectItem value={team.value} key={team.value}>{team.label}</SelectItem>)}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-      {teamShort && <SearchPlayersServer input={teamShort} />}
-
+    <div className="inline-flex gap-5">
+      <ShowTeamsDropDown onSubmit={handleSubmit} />
+      {teamShort && <ShowPlayersDropDown players={players} addToSquad={handleToSquad}/>}
     </div>
   );
 };

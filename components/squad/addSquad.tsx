@@ -78,7 +78,7 @@ export default function AddSquad() {
             </div>
           </div>
         }>
-        <ShowPlayers players={players} squad={squad} addSquad={addSquad} />
+        <></>
       </BasicCard>
       <SquadTable sum={sum} squad={squad} />
       <SoccerField squad={squad} removeSquad={removeSquad} />

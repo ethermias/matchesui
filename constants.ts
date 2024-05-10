@@ -1,4 +1,4 @@
-export const URL = 'http://localhost:8000'
+export const URL = 'http://ethermias.com:8000'
 export const deployMode = process.env.DEPLOY_MODE || 'DS3';
 export const matchweek = 37
 export const winner = "jermi"
